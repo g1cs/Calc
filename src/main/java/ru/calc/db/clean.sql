@@ -1,0 +1,9 @@
+truncate calc;
+truncate elem;
+truncate elem_data_input;
+truncate elem_data_select;
+truncate elem_data_slider;
+truncate list_elements;
+truncate list_values;
+truncate user_calc;
+truncate values_data;
