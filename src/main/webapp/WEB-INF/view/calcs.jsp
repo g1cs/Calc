@@ -21,8 +21,8 @@
 
 
   <script src="${pageContext.request.contextPath}/resources/bootstrap/js/jquery-3.4.1.js" ></script>
-  <script src="${pageContext.request.contextPath}/resources/js/edit.js"></script>
   <script src="${pageContext.request.contextPath}/resources/js/calc.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/edit.js"></script>
   <script src="${pageContext.request.contextPath}/resources/js/calc_edit.js"></script>
   <script>
       jQuery(document).ready(function($) {

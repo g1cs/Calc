@@ -224,7 +224,7 @@ public class CalcOsago extends Calc {
 
     Double r = 1.0;
     StringBuilder result;
-    result = new StringBuilder(defaultRes.info + defaultRes.formula + '\n');
+    result = new StringBuilder();
     for (int i = 0; i < defaultRes.res.size(); i++){
       ListValue elem = defaultRes.res.get(i);
       //result.append(elem.name).append(" = ").append(elem.value).append("; ");

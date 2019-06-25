@@ -132,9 +132,6 @@ function displayUserCalcs() {
                 '<li class="' + class_styleCalc + '"><a name="/resources/css/' + styles[0] + '">' + stylesName[0] + '</a></li>' +
             '</ul>';
 
-            console.log(stringStyles);
-
-
         var modalCode =
             $('<div id="modal' + idCalc + '" class="modal_window" style="display: none;">' +
                 '<h2 class="modal_h2">Данные калькулятора</h2>' +
@@ -342,7 +339,7 @@ function selectSlyleCalc(value) {
     selectStyle = value;
 
     var list_li = $('.' + class_styleCalc);
-    $('link[id="linkStyle"]').attr('href', '/resources/css/' + styles[selectStyle])
+    $('link[id="linkStyle"]').attr('href', '/resources/css/' + styles[selectStyle]);
 
     for (var i = 0; i < list_li.length; i++) {
         var li = list_li[i];
@@ -398,7 +395,7 @@ function updateConstructorFromCalc() {
     outputData = null;
     inputData = null;
 
-    nameCalcFromCalc();
+    nameCalc();
 
     console.log(selectTypeCalc);
     switch(selectTypeCalc) {

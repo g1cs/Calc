@@ -619,8 +619,6 @@ function computeCalc() {
 
     switch (selectTypeCalc) {
         case "Осаго":
-            console.log(listElemsConstructor);
-            console.log(elems);
             list.push( {name: elems[0].idName, value: elems[0].info.value} );
             for (var i = 0; i < listElemsConstructor.length; i++)
                 for (var j = 1; j < elems.length; j++)
