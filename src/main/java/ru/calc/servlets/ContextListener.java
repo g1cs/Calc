@@ -1,7 +1,6 @@
 package ru.calc.servlets;
 
-import ru.calc.dao.UserDAO;
-import ru.calc.db.DBWorker;
+import ru.calc.db.*;
 import ru.calc.model.*;
 
 import javax.servlet.ServletContext;
@@ -28,7 +27,7 @@ public class ContextListener implements ServletContextListener {
   private List<Calc> defaultCalcs;
   private List<Calc> calcs;
 
-  private DBWorker dbWorker;
+  private DBWorkerWeb dbWorker;
 
 
   private void addAdminCalcs() {
@@ -52,7 +51,7 @@ public class ContextListener implements ServletContextListener {
   public void contextInitialized(ServletContextEvent servletContextEvent) {
 
     System.out.println("contextInitialized");
-    dbWorker = new DBWorker();
+    dbWorker = new DBWorkerWeb();
     dbWorker.openConnection();
 
     defaultCalcs = new CopyOnWriteArrayList<>();
@@ -61,6 +60,11 @@ public class ContextListener implements ServletContextListener {
     //addAdminCalcs();
 
     defaultCalcs = dbWorker.getDefaultCalcs();
+
+    //dbWorker.deleteCalcById(2, 6);
+
+
+//    dbWorker.deleteUserCalcs(1);
 
     final ServletContext servletContext =
         servletContextEvent.getServletContext();

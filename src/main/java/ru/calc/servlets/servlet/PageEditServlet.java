@@ -18,18 +18,14 @@ public class PageEditServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    System.out.println("PageEditServlet");
     final HttpSession session = request.getSession();
     final User.ROLE role = (User.ROLE) session.getAttribute("role");
-    System.out.println(role);
 
     if (role == null || role.equals(User.ROLE.UNKNOWN)) {
       response.sendRedirect("/");
 
-    } else if (role.equals(User.ROLE.ADMIN)) {
-      request.getRequestDispatcher("/WEB-INF/view/edit.jsp").forward(request, response);
+    } else {
 
-    } else if (role.equals(User.ROLE.USER)) {
       request.getRequestDispatcher("/WEB-INF/view/edit.jsp").forward(request, response);
     }
   }

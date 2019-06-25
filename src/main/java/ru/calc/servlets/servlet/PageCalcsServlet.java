@@ -1,5 +1,7 @@
 package ru.calc.servlets.servlet;
 
+import ru.calc.model.User;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,14 +17,13 @@ public class PageCalcsServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    System.out.println("PageCalcsServlet");
     final HttpSession session = request.getSession();
     final ru.calc.model.User.ROLE role = (ru.calc.model.User.ROLE) session.getAttribute("role");
 
-    if (role.equals(ru.calc.model.User.ROLE.ADMIN)) {
-      request.getRequestDispatcher("/WEB-INF/view/calcs.jsp").forward(request, response);
+    if (role == null || role.equals(User.ROLE.UNKNOWN)) {
+      response.sendRedirect("/");
 
-    } else if (role.equals(ru.calc.model.User.ROLE.USER)) {
+    } else {
       request.getRequestDispatcher("/WEB-INF/view/calcs.jsp").forward(request, response);
     }
   }

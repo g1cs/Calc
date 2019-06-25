@@ -1,0 +1,194 @@
+.osago-online header .topline {height:37px;padding-top: 8px;border-bottom: 1px solid #ececec;-webkit-box-shadow: 0px 0px 3px 0px rgba(50, 50, 50, 0.3);-moz-box-shadow:0px 0px 3px 0px rgba(50, 50, 50, 0.3);box-shadow: 0px 0px 3px 0px rgba(50, 50, 50, 0.3)}
+.osago-online header .topline .tl-select-link, .osago-online header .topline .tl-cabinet-link {color: #7a7a7a;}
+.osago-online header .topline .topline-nav li {border: 0;}
+.osago-online header .topline .topline-nav li a {text-decoration: none;border: 0;}
+.osago-online header .topline .topline-nav li a:hover {text-decoration: underline;}
+.osago-online header .logo-note {border: 0;margin-left: 10px;}
+.osago-online .top-nav-no-border {border: 0;}
+.osago-online .top-nav-bottom-border {border-bottom: 1px solid #ECECEC; margin-bottom: 20px;}
+.osago-online .top-nav-inside .top-subnav a span {border: 0;}
+.osago-online .top-nav-inside .top-subnav a:hover {text-decoration: underline;}
+.osago-online .top-nav-inside .globaltab-slide-nav {padding: 0;position: relative;}
+.osago-online .top-nav-inside .globaltab-slide-nav > li {background: none;padding: 0;display: inline-block;margin:0;position: static;}
+/*.osago-online .top-nav-inside .globaltab-slide-nav > li:first-child {margin-left: -22px;}*/
+.osago-online .top-nav-inside .globaltab-slide-nav > li > a {background: none;text-transform: uppercase;font-weight: bold;padding: 0 22px;z-index: 14;position: relative;}
+.osago-online .top-nav-inside .globaltab-slide-nav > li.active-li > a {color: #23803f;}
+.osago-online .top-nav-inside .globaltab-slide-nav > li.active-li {-webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.2);-moz-box-shadow:0px 0px 5px 0px rgba(50, 50, 50, 0.2);box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.2);cursor: default;}
+.osago-online .top-nav-inside .globaltab-slide-nav > li.active-li > ul {display: inline-block;}
+.osago-online .top-nav-inside .globaltab-slide-nav > li.active-li > a:before {content:'';width: 100%;position: absolute;left: 0;bottom: 0;background-color: #fff;z-index: 15;height: 3px;}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul {padding: 22px 22px 0px 22px;top: 37px;left: 0;position: absolute;display: none;z-index: 13;width: 940px;background-color: #fff;-webkit-box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.2);-moz-box-shadow:0px 0px 5px 0px rgba(50, 50, 50, 0.2);box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.2);}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li {float: none;display: inline-block;width: 250px;position: relative;background: none;margin: 0;padding: 0;vertical-align: top;height: auto;margin-bottom: 20px;}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span {display: inline-block;width: 100%;background: none;cursor: default;}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a {color: #383838;display: inline-block;font-size: 13px;line-height: 1.2;height: auto;background: none;padding: 0;margin: 6px 0;}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a:hover {text-decoration: underline;}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title {background-repeat: no-repeat;color: #258041;margin-bottom: 10px;padding-left: 40px;text-transform: uppercase;font-size: 15px;font-weight: bold;height: 24px;line-height: 24px;background-position: left center;}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm1 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm1.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm2 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm2.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm3 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm3.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm4 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm4.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm5 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm5.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm6 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm6.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm7 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm7.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm8 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm8.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm9 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm9.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm10 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm10.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm11 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm11.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm12 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm12.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm13 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm13.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm14 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm14.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm15 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm15.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm16 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm16.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm17 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm17.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm18 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm18.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm19 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm19.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm20 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm20.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm21 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm21.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm22 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm22.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.title.ihm23 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm23.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.grey {color: #a3a3a3;min-height: 20px;line-height: 16px;font-size: 13px;padding-left: 28px;background-position: left center;background-repeat: no-repeat;}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.calc {color: #a3a3a3;min-height: 20px;line-height: 16px;font-size: 13px;padding-left: 28px;background-position: left center;background-repeat: no-repeat;background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm-calc.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li > span > a.time {color: #a3a3a3;min-height: 20px;line-height: 16px;font-size: 13px;padding-left: 28px;background-position: left center;background-repeat: no-repeat;background-image: url('/export/system/modules/ru.reso/resources/images/oson/ihm-time.png');}
+.osago-online .top-nav-inside .globaltab-slide-nav > li > ul > li:nth-child(4n) {width: 170px;}
+
+.osago-online header .h-content {width: 560px;}
+.osago-online header .h-content .h-search {height: auto;width: auto;float: right;position: relative;}
+.osago-online header .h-content .h-search input[type="text"] {position: static;width: 170px !important;height: 40px;padding: 0 30px 0 12px;background: none;font-style: normal;font-size: 12px;border: 1px solid #e2e2e2;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;}
+.osago-online header .h-content .h-search input[type="button"] {position: absolute;background-image: url('/export/system/modules/ru.reso/resources/images/oson/search-button.png');background-repeat: no-repeat;background-position: center;right: 10px;margin-top: 9px;}
+.osago-online header .h-content .h-search input[type="submit"] {position: absolute;background-image: url('/export/system/modules/ru.reso/resources/images/oson/search-button.png');background-repeat: no-repeat;background-position: center;right: 10px;margin-top: 9px;}
+.osago-online header .h-content .h-phone {display: inline-block;float: left;margin-top: 15px;font-size: 18px;}
+.osago-online header .h-content .h-phone-1 {float: left;border: 0;margin-right:20px;margin-left: 0;padding: 0;}
+.osago-online header .h-content .h-callback {float: left;width: auto;padding: 0;margin-top: 3px;}
+.osago-online header .h-content .h-callback-link {width: auto;background-image: url('/export/system/modules/ru.reso/resources/images/oson/phone-icon.png');padding-left: 32px;}
+
+.osago-online footer, .osago-online .footer-bottom {border-top: 0;}
+
+.os-on-banner {width: 984px;height: 380px;display: table;background-repeat: no-repeat;text-align: center;}
+.os-on-banner .table-cell {display: table-cell;vertical-align: middle;}
+.os-on-banner h1 {color: #fff;font-weight: 800;margin: 0;padding: 0;line-height: 1;}
+.os-on-banner .os-on_banner-text {color:#fff;margin: 19px 0;display: inline-block;font-size: 13px;}
+.os-on-banner {border-radius: 5px;-moz-border-radius: 5px;-webkit-border-radius: 5px;background-size: cover; }
+.os-on_banner-input-text {width: 164px;height: 55px;display: inline-block;margin-right: 21px;border: 0;background: transparent url('/export/system/modules/ru.reso/resources/images/oson/button-bg-left.png');color: #fff;padding-left: 20px;padding-right: 20px;line-height: 55px;}
+.os-on_banner-input-button {width: 225px;height: 55px;display: inline-block;border: 0;background: transparent url('/export/system/modules/ru.reso/resources/images/oson/button-bg.png');color: #fff;line-height: 55px;}
+
+
+.os-on_advantages {display: inline-block;width: 100%;margin-top: 55px;text-align: center;}
+.os-on_advantages h2 {line-height: 1;margin: 0;padding: 0;font-size: 35px;color: #383838;font-weight: 300;margin-bottom: 48px;}
+.os-on_advantages_layers {display: inline-block;width: 100%;}
+.os-on_advantages_layers .layer {width: 200px;display: inline-block;}
+.os-on_advantages_layers .layer .icon {height: 74px;display: inline-block;width: 100%;background-repeat: no-repeat;background-position: top center;}
+.os-on_advantages_layers .layer .icon.fast {background-image: url('/export/system/modules/ru.reso/resources/images/oson/fast-icon.png');background-position: 43% 0%;}
+.os-on_advantages_layers .layer .icon.safely {background-image: url('/export/system/modules/ru.reso/resources/images/oson/safely-icon.png');}
+.os-on_advantages_layers .layer .icon.easy {background-image: url('/export/system/modules/ru.reso/resources/images/oson/easy-icon.png');}
+.os-on_advantages_layers .layer .title {color: #23803f;font-size: 26px;display: inline-block;width: 100%;line-height: 1;margin-bottom: 20px;}
+.os-on_advantages_layers .layer .text {color: #a3a3a3;font-size: 13px;display: inline-block;width: 100%;}
+
+.os-on_questions {background-color: #f6f6f6;padding-top: 35px;padding-bottom: 25px;margin-top: 30px;margin-bottom: 30px;}
+.text .os-on_questions {padding-top: 0px;padding-bottom: 0px;}
+.os-on_questions h2 {line-height: 1;margin: 0;padding: 0;font-size: 35px;color: #383838;font-weight: 300;margin-bottom: 30px;text-align: center;}
+.os-on_questions_list {display: inline-block;width: 100%;padding: 0;margin: 0;}
+.os-on_questions_list li {display: inline-block;width: 934px;padding: 22px 25px 21px 25px;margin: 0;list-style: none;border-bottom: 1px solid #ececec;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;position: relative;/*cursor: pointer;*/}
+.text .os-on_questions_list li{width:630px;background: none;}
+.os-on_questions_list li .title {color: #797979;display: inline-block;width: 100%;line-height: 1;cursor: pointer;}
+.os-on_questions_list li .text {display: none;font-size: 13px;width: 100%;color: #383838;margin-top: 18px;}
+.text .os-on_questions_list li .text {font-size: 14px;}
+.os-on_questions_list li:before {content: "";position: absolute;right: 21px;top: 30px;width: 6px;height: 5px;background-image: url('/export/system/modules/ru.reso/resources/images/oson/arrows-icon.png');background-position: top;}
+.os-on_questions_list li:hover,.text .os-on_questions_list li:hover {background-color: #fff;border-bottom: 0;padding-bottom: 22px;}
+.os-on_questions_list li:hover .title,.text .os-on_questions_list li:hover .title {color: #383838;}
+.os-on_questions_list li:hover:before {background-position: center;}
+.os-on_questions_list li.active, .text .os-on_questions_list li.active {background-color: #fff;}
+.os-on_questions_list li.active .title, .text .os-on_questions_list li.active .title {color: #23803f;}
+.os-on_questions_list li.active .text, .text .os-on_questions_list li.active .text {display: inline-block;}
+.os-on_questions_list li.active:before, .text .os-on_questions_list li.active:before {background-position: bottom !important;}
+.os-on_questions_list li.last, .text .os-on_questions_list li.last {border: 0;padding-bottom: 22px;}
+
+.os-on_labels {display: inline-block;width: 100%;}
+.os-on_labels_label {position: relative;display: inline-block;width: 868px;border: 1px solid #ebebeb;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;margin-bottom: 14px;padding-top: 20px;padding-bottom: 20px;padding-right: 30px;padding-left: 88px;}
+.os-on_labels_label .icon {position: absolute;content: "";}
+.os-on_labels_label .icon.os-on_icon {background-repeat: no-repeat;width: 48px;height: 50px;left: 22px;top: 20px;}
+.os-on_labels_label .icon.osago-on {background-image: url('/export/system/modules/ru.reso/resources/images/oson/osago-icon.png');background-repeat: no-repeat;width: 48px;height: 50px;left: 22px;top: 20px;}
+.os-on_labels_label .icon.location-on {background-image: url('/export/system/modules/ru.reso/resources/images/oson/location-icon.png');background-repeat: no-repeat;width: 31px;height: 42px;left: 30px;top: 20px;}
+.os-on_labels_label .title {font-weight: bold;font-size: 15px;display: inline-block;width: 100%;margin-bottom: 15px;line-height: 1;}
+.os-on_labels_label .text {font-size: 13px;display: inline-block;width: 100%;color: #a3a3a3;line-height: 20px;}
+.os-on_labels_label .button-label {display: inline-block;margin-top: 12px;width: 179px;height: 40px;background-image: url('/export/system/modules/ru.reso/resources/images/oson/small-label-button.png');background-repeat: no-repeat;color: #fff;line-height: 40px;text-align: center;font-size: 13px;}
+.os-on_labels_label .button-label.last {width: 261px;background-image: url('/export/system/modules/ru.reso/resources/images/oson/big-label-button.png');}
+
+.os-on_spec {display: inline-block;width: 100%;margin: 10px 0 30px 0;font-size: 13px;color: #a3a3a3;}
+
+.oson-banner {width: 984px;height: 380px;display: inline-block;text-align: center;padding: 0;margin: 0;}
+.oson-banner_slide {display: inline-block;padding: 0;margin: 0;list-style: none;width: 984px;height: 380px;background-repeat: no-repeat;}
+.oson-banner_slide {border-radius: 5px;-moz-border-radius: 5px;-webkit-border-radius: 5px;}
+.oson-banner .table {display: table;width: 984px;height: 380px;}
+.oson-banner .table-cell {display: table-cell;vertical-align: middle;}
+.oson-banner h1 {color: #fff;font-weight: 800;margin: 0;padding: 0;line-height: 1;margin-bottom: 12px;}
+.oson-banner .text, .os-on-banner .text {font-size: 13px;display: inline-block;width: 100%;text-align: center;color: #fff;line-height: 20px;}
+.oson_banner-input-text {margin-right: 21px;width: 204px;height: 45px;display: inline-block;border: 0;background: transparent url('/export/system/modules/ru.reso/resources/images/oson/button-banner-2.png');color: #fff;font-size: 13px;font-weight: bold;margin-top: 12px;line-height: 45px;}
+.oson_banner-input-button {width: 204px;height: 45px;display: inline-block;border: 0;background: transparent url('/export/system/modules/ru.reso/resources/images/oson/button-banner-2.png');color: #fff;font-size: 13px;font-weight: bold;margin-top: 12px;line-height: 45px;}
+.oson_banner-input-button-moscow-hit {width: 204px;height: 45px;display: inline-block;border: 0;background: transparent url('/export/system/modules/ru.reso/resources/images/oson/button-banner-2.png');color: #fff;font-size: 13px;font-weight: bold;margin-top: 12px;line-height: 45px; margin-left: 260px;}
+.oson-slider {position: relative;}
+.oson-slider .bx-viewport {z-index: 9;}
+.oson-slider .bx-controls {position: absolute;bottom: 13px;z-index: 10;width: 100%;}
+.oson-slider .bx-pager {display: inline-block;width: 100%;text-align: center;}
+.oson-slider .bx-pager .bx-pager-item {display: inline-block;width: 12px;height: 12px;margin: 0 4px;}
+.oson-slider .bx-pager .bx-pager-item a {float: left;text-indent: -9999px;display: inline-block;margin-top: 3px;margin-left: 3px;width: 6px;height: 6px;background-color: #308f49;-webkit-border-radius: 50%;-moz-border-radius: 50%;border-radius: 50%;}
+.oson-slider .bx-pager .bx-pager-item a.active {width: 12px;height: 12px;margin-top: 0;margin-left: 0px;}
+.oson-slider .bx-pager .bx-pager-item:hover a {width: 12px;height: 12px;margin-top: 0;margin-left: 0px;}
+.oson-slider .bx-prev, .oson-slider .bx-next {position: absolute;left: 10px;top: -160px;text-indent: -9999px;background-image: url('/export/system/modules/ru.reso/resources/images/oson/banner-1-arrows.png');width: 10px;height: 15px;background-position: left top;background-repeat: no-repeat;border: 0;}
+.oson-slider .bx-next {right: 10px;background-position: right top;left:auto;}
+
+.oson_list-href {display: none;width: 100%;padding: 0;margin: 0;margin-top: 30px;}
+.oson_list-href.active {display: table;}
+.oson_list-href li {list-style: none;display: table-cell;padding: 0;margin: 0;}
+.oson_list-href li .icon {height: 25px;float: left;background-repeat: no-repeat;background-position: left center;margin-right: 12px;}
+.oson_list-href li .icon.i1 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/i1.png');width: 15px;}
+.oson_list-href li .icon.i2 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/i2.png');width: 22px;}
+.oson_list-href li .icon.i3 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/i3.png');width: 15px;}
+.oson_list-href li .icon.i4 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/i4.png');width: 23px;}
+.oson_list-href li .icon.i5 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/i5.png');width: 28px;}
+.oson_list-href li .icon.i6 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/i6.png');width: 21px;}
+.oson_list-href li .text {float: left;display: table;width: 130px;height: 25px;}
+.oson_list-href li .text .center {display: table-cell;vertical-align: middle;text-transform: uppercase;font-size: 10px;font-weight: bold;color: #383838;line-height: 1.4;}
+.oson_list-href li a:hover .text .center {text-decoration: underline;}
+.oson_list-href li.active-li ul {display: block;}
+
+
+
+.oson_services {padding: 0;display: inline-block;margin: 0;}
+.oson_services .oson_services_slide {padding: 0;margin: 0;list-style: none;width: 216px;height: 112px;display: inline-block;background-color: #f0f0f0;padding-left: 18px;padding-top: 15px;padding-right: 80px;position: relative;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;}
+.oson_services .oson_services_slide:hover {-webkit-box-shadow: 0px 0px 4px 0px rgba(50, 50, 50, 0.3);-moz-box-shadow:0px 0px 4px 0px rgba(50, 50, 50, 0.3);box-shadow: 0px 0px 4px 0px rgba(50, 50, 50, 0.3)}
+.oson_services .oson_services_slide .title {font-size: 18px;font-weight: bold;}
+.oson_services .oson_services_slide .text {font-size: 13px;color: #5d5e61;display: inline-block;width: 200px;margin-top: 10px;}
+.oson_services .oson_services_slide .icon_table {display: table;padding-right: 24px;position: absolute;right: 0;top: 0;height: 127px;}
+.oson_services .oson_services_slide .icon_table-cell {display: table-cell;vertical-align: middle;}
+.oson_services .oson_services_slide .icon {background-repeat: no-repeat;display: inline-block;}
+.oson_services .oson_services_slide .icon.io1 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/io1.png');width: 51px;height: 42px;}
+.oson_services .oson_services_slide .icon.io2 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/io2.png');width: 59px;height: 58px;}
+.oson_services .oson_services_slide .icon.io3 {background-image: url('/export/system/modules/ru.reso/resources/images/oson/io3.png');width: 33px;height: 57px;}
+.oson-slider-2 {position: relative;display: inline-block;margin-top: 35px;}
+.oson-slider-2 .bx-viewport {z-index: 9;height: 140px !important;display: inline-block;}
+.oson-slider-2 .bx-controls {float: left;display: inline-block;margin-top: -15px;position: relative;z-index: 10;width: 100%;}
+.oson-slider-2 .bx-pager {display: inline-block;width: 100%;text-align: center;}
+.oson-slider-2 .bx-pager .bx-pager-item {display: inline-block;width: 9px;height: 8px;margin: 0 4px;}
+.oson-slider-2 .bx-pager .bx-pager-item a {float: left;text-indent: -9999px;display: inline-block;width: 9px;height: 8px;background-color: #c9c9c9;border: 0;-webkit-border-radius: 50%;-moz-border-radius: 50%;border-radius: 50%;}
+.oson-slider-2 .bx-pager .bx-pager-item a.active {background-color: #23803f;}
+
+.oson_news {display: inline-block;width: 100%;margin-top: 25px;border-bottom: 1px solid #e7e7e7;padding-bottom: 15px;margin-bottom: 40px;position: relative;}
+.oson_news_name {font-size: 14px;float: left;color: #383838;text-transform: uppercase;font-weight: bold;}
+.oson_news_list {float: right;padding: 0;margin: 0;width: 830px;height: 40px;position: relative;overflow: hidden;display: inline-block;}
+.oson_news_list.active {height: auto;}
+.oson_news_list .oson_news_list_item {float: left;display: inline-block;width: 100%;margin-bottom: 3px;}
+.oson_news_list .oson_news_list_item .title {color: #9fa0a5;display: inline-block;font-size: 15px;text-decoration: none;border:0;}
+.oson_news_list .oson_news_list_item .title.all {color: #000;}
+.oson_news_list .oson_news_list_item .title:hover {text-decoration: underline;}
+.oson_news_list .oson_news_list_item .date {color: #9fa0a5;font-size: 11px;display: inline-block;width: 100%;}
+.oson_news .more {position: absolute;bottom: -8px;background-image: url('/export/system/modules/ru.reso/resources/images/oson/news-more.png');background-repeat: no-repeat;left: 50%;width: 16px;height: 16px;margin-left: -8px;text-align: center;}
+.oson_news .more.non-active {background-image: url('/export/system/modules/ru.reso/resources/images/oson/news-more-rotate.png');}
+.oson_news .more a {display: inline-block;margin-top: 25px;font-size: 11px;white-space: nowrap;width: 96px;left: 50%;position: relative;margin-left: -48px;text-align: center;border-bottom:1px dotted;line-height: 1.1;color: #a3a3a3;}
+
+.oson_banner-bottom {height: 85px;display: table;width: 879px;background-color: #f0f0f0;-webkit-border-radius: 3px;-moz-border-radius: 3px;border-radius: 3px;margin-bottom: 18px;padding-left: 90px;padding-right: 15px;background-image: url('/export/system/modules/ru.reso/resources/images/oson/banner-bottom-bg.png');background-repeat: no-repeat;background-position: 23px center;}
+.oson_banner-bottom .table-cell {display: table-cell;vertical-align: middle;}
+.oson_banner-bottom .title {color: #1d7b39;font-size: 22px;font-weight: 800;display: inline-block;text-transform: uppercase;line-height: 1.2;width: 175px;}
+.oson_banner-bottom .text {display: inline-block;font-size: 13px;color: #383838;line-height: 1.2;}
+.oson_banner-bottom .date {display: inline-block;min-height: 23px;background-image: url('/export/system/modules/ru.reso/resources/images/oson/date-bottom-banner.png');background-repeat: no-repeat;background-position: left center;padding-left: 40px;font-size: 13px;color: #a3a3a3;width: 105px;}
+.oson_banner-bottom .date-second {display: inline-block;font-size: 13px;color: #a3a3a3;width: 172px;}
+.oson_banner-bottom .button {background-image: url('/export/system/modules/ru.reso/resources/images/oson/button-bottom-banner.png');width: 116px;height: 37px;display: inline-block;font-weight: bold;color: #fff;font-size: 13px;padding-top: 8px;text-align: center;line-height: 1.2;}
+.oson_banner-bottom .button:hover {color: #115625;}

@@ -1,7 +1,6 @@
 package ru.calc.servlets.filter;
 
-import ru.calc.dao.UserDAO;
-import ru.calc.db.DBWorker;
+import ru.calc.db.DBWorkerWeb;
 import ru.calc.model.User;
 
 import javax.servlet.*;
@@ -33,8 +32,6 @@ public class AuthFilter implements Filter {
                        final FilterChain filterChain)
       throws IOException, ServletException {
 
-    System.out.println("AuthFilter");
-
     request.setCharacterEncoding("UTF-8");
     response.setContentType("application/json");
     response.setCharacterEncoding("UTF-8");
@@ -46,9 +43,7 @@ public class AuthFilter implements Filter {
     final String password = req.getParameter("password");
     final HttpSession session = req.getSession();
 
-    //@SuppressWarnings("unchecked")
-    //final AtomicReference<UserDAO> users = (AtomicReference<UserDAO>) req.getServletContext().getAttribute("users");
-    final DBWorker dbWorker = (DBWorker) req.getServletContext().getAttribute("dbWorker");
+    final DBWorkerWeb dbWorker = (DBWorkerWeb) req.getServletContext().getAttribute("dbWorker");
 
     System.out.println("login: " + login);
 
@@ -73,35 +68,8 @@ public class AuthFilter implements Filter {
       req.getSession().setAttribute("login", login);
 
       moveToMenu(req, res, user.getRole());
-
-    } else {
-      // неизвестный пользователь
+    } else // неизвестный пользователь
       moveToMenu(req, res, User.ROLE.UNKNOWN);
-    }
-//    if (nonNull(session) &&
-//        nonNull(session.getAttribute("login")) &&
-//        nonNull(session.getAttribute("password"))) {
-//
-//      final User.ROLE role = (User.ROLE) session.getAttribute("role");
-//
-//      moveToMenu(req, res, role);
-//
-//    } else if (users.get().userIsExist(login, password)) {
-//
-//
-//      final User user = users.get().getUserByLoginPassword(login, password);
-//
-//      req.getSession().setAttribute("password", password);
-//      req.getSession().setAttribute("login", login);
-//      req.getSession().setAttribute("role", user.getRole());
-//      req.getSession().setAttribute("userId", user.getId());
-//
-//      moveToMenu(req, res, user.getRole());
-//
-//    } else {
-//
-//      moveToMenu(req, res, User.ROLE.UNKNOWN);
-//    }
   }
 
   private void moveToMenu(final HttpServletRequest req,
@@ -109,32 +77,9 @@ public class AuthFilter implements Filter {
                           final User.ROLE role)
       throws ServletException, IOException {
 
-
-
-
-    int r = role.ordinal();
-    System.out.println("role: " + r);
-
-    if (role.equals(User.ROLE.UNKNOWN)) {
-
+    if (role.equals(User.ROLE.UNKNOWN))
       req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req, res);
-    } else {
-
+    else
       res.sendRedirect("/index");
-    }
-
-
-//    if (role.equals(User.ROLE.ADMIN)) {
-//
-//      //req.getRequestDispatcher("/WEB-INF/view/admin_menu.jsp").forward(req, res);
-//
-//    } else if (role.equals(User.ROLE.USER)) {
-//
-//      //req.getRequestDispatcher("/WEB-INF/view/user_menu.jsp").forward(req, res);
-//
-//    } else {
-//
-//      req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req, res);
-//    }
   }
 }

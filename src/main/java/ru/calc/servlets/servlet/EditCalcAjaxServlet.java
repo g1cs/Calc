@@ -1,6 +1,6 @@
 package ru.calc.servlets.servlet;
 
-import ru.calc.db.DBWorker;
+import ru.calc.db.DBWorkerWeb;
 import ru.calc.model.*;
 import ru.calc.model.Elements.*;
 
@@ -26,12 +26,13 @@ public class EditCalcAjaxServlet extends HttpServlet {
 
 //  public static Calc calc;
 
-  private static DBWorker dbWorker;
+  private static DBWorkerWeb dbWorker;
   private static List<Calc> defaultCalcs;
   private static List<Calc> calcs;
   private static Integer AdminId = 1;
   private User.ROLE userRole;
   private Boolean isAdmin = false;
+
 
   @Override
   public void init() throws ServletException {
@@ -55,12 +56,12 @@ public class EditCalcAjaxServlet extends HttpServlet {
 
       EditCalcAjaxServlet.calcs = (CopyOnWriteArrayList<Calc>) calcs;
     }
-    if (dbWorker == null || !(dbWorker instanceof DBWorker)) {
+    if (dbWorker == null || !(dbWorker instanceof DBWorkerWeb)) {
 
       throw new IllegalStateException("dbWorker does not initialize!");
     } else {
 
-      EditCalcAjaxServlet.dbWorker = (DBWorker) dbWorker;
+      EditCalcAjaxServlet.dbWorker = (DBWorkerWeb) dbWorker;
     }
   }
 
@@ -68,10 +69,8 @@ public class EditCalcAjaxServlet extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    System.out.println("EditCalcAjaxServlet_GET");
     final HttpSession session = request.getSession();
     final User.ROLE role = (User.ROLE) session.getAttribute("role");
-    System.out.println(role);
 
     if (role.equals(User.ROLE.UNKNOWN))
       return;
@@ -79,9 +78,7 @@ public class EditCalcAjaxServlet extends HttpServlet {
     List<String> list = new ArrayList<>();
     list.add("Осаго");
     list.add("Кредит");
-    list.add("Вклады");
     list.add("Ипотека");
-    list.add("Тариф сотовой связи");
 
     response.setContentType("application/json");
     response.setCharacterEncoding("UTF-8");
@@ -92,57 +89,109 @@ public class EditCalcAjaxServlet extends HttpServlet {
   protected void doPost(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
 
-    System.out.println("EditCalcAjaxServlet_POST");
     final HttpSession session = request.getSession();
     final User.ROLE role = (User.ROLE) session.getAttribute("role");
-    final Boolean isAdmin;
-    System.out.println(role);
+    boolean isAdmin = false;
+
+    if (role == null || role.equals(User.ROLE.UNKNOWN))
+      return;
 
     if (role.equals(User.ROLE.ADMIN))
       isAdmin = true;
-    else if (role.equals(User.ROLE.USER))
-      isAdmin = false;
-    else
-      return;
-
-    final Integer userId = (Integer) session.getAttribute("userId");
-    final JsonObject data = new Gson().fromJson(request.getReader(), JsonObject.class);
-    System.out.println(userId);
-
-    String json = getJsonResult(data, userId, isAdmin);
 
     response.setContentType("application/json");
     response.setCharacterEncoding("UTF-8");
-    response.getWriter().write(json);
-  }
-  
-  private String getJsonResult(JsonObject data, Integer userId, Boolean isAdmin) {
 
-    String typeCalc = data.get("typeCalc").getAsString();
-    String query = data.get("query").getAsString();
-    
+    Integer userId;
+    try {
+      userId = (Integer) session.getAttribute("userId");
+    } catch (Exception e) {
+      response.sendError(500, "Запрос не выполнен. Сервер попал в непредвиденные условия. Пройдите авторизацию заново!!!");
+      return;
+    }
+    final JsonObject data = new Gson().fromJson(request.getReader(), JsonObject.class);
+    System.out.println(userId);
+
+    String json = getJsonResult(response, data, userId, isAdmin);
+
+    if (json != null)
+      response.getWriter().write(json);
+  }
+
+  private String getJsonResult(HttpServletResponse response, JsonObject data, Integer userId, Boolean isAdmin)
+      throws ServletException, IOException {
+
+    String typeCalc, query = data.get("query").getAsString();
+
+    try {
+      typeCalc = data.get("typeCalc").getAsString();
+    } catch (Exception e) {
+      response.sendError(400, "Сервер не понял запрос. Проверьте правильность переменной 'typeCalc'!!!");
+      return null;
+    }
+    JsonElement jsonElement = null;
+    Integer calcId = null;
+    String name = null;
+
+
     switch (query) {
-      case "GET":
-        return getJsonResultOnQueryGet(userId, typeCalc, isAdmin);
 
       case "SAVE":
-        JsonElement jsonElement = data.get("list");
-        return getJsonResultOnQuerySave(userId, typeCalc, data.get("name").getAsString(), jsonElement);
+      case "UPDATE":
+      case "RES":
+        try {
+          jsonElement = data.get("list");
+        } catch (Exception e) {
+          response.sendError(400, "Сервер не понял запрос. Проверьте правильность переменной 'list'!!!");
+          return null;
+        }
+        try {
+          name = data.get("name").getAsString();
+        } catch (Exception e) {
+          response.sendError(400, "Сервер не понял запрос. Проверьте правильность переменной 'name'!!!");
+          return null;
+        }
+      default: break;
+    }
+
+    switch (query) {
+
+      case "UPDATE":
+      case "DEL":
+        try {
+          calcId = data.get("idCalc").getAsInt();
+        } catch (Exception e) {
+          response.sendError(400, "Сервер не понял запрос. Проверьте правильность переменной 'idCalc'!!!");
+          return null;
+        }
+      default: break;
+    }
+
+
+    switch (query) {
+      case "GET":
+        return getJsonResultOnQueryGet(response, userId, typeCalc, isAdmin);
+
+      case "SAVE":
+        return getJsonResultOnQuerySave(response, userId, typeCalc, name, jsonElement);
+
+      case "UPDATE":
+        return getJsonResultOnQuerySave(response, userId, typeCalc, name, jsonElement, calcId);
 
       case "RES":
-        JsonElement jsonElementList = data.get("list");
-        return getJsonResultOnQueryRes(userId, typeCalc, data.get("name").getAsString(), jsonElementList);
+        return getJsonResultOnQueryRes(response, userId, typeCalc, name, jsonElement);
 
       case "DEL":
-        Integer index = data.get("index").getAsInt();
-        return getJsonResultOnQueryDel(userId, index, isAdmin);
+        return getJsonResultOnQueryDel(response, userId, calcId, isAdmin);
 
       default:
-        return "Ошибка!";
+        response.sendError(400, "Сервер не понял запрос. Проверьте правильность переменной 'query'!!!");
+        return null;
     }
   }
 
-  private String getJsonResultOnQueryGet(Integer userId, String typeCalc, Boolean isAdmin) {
+  private String getJsonResultOnQueryGet(HttpServletResponse response, Integer userId, String typeCalc, Boolean isAdmin)
+      throws IOException {
 
     Gson gson = new Gson();
     List<Calc> temp = defaultCalcs; // стандартные калькуляторы
@@ -154,32 +203,20 @@ public class EditCalcAjaxServlet extends HttpServlet {
         for (Calc calc : temp)
           if (calc.type.equals(typeCalc))
             return gson.toJson(calc);
-      // пользовательские калькуляторы
+        // пользовательские калькуляторы
       case "ALL":
       case "":
         if (!isAdmin)
           return gson.toJson(dbWorker.getUserCalc(userId));
         else
           return gson.toJson(defaultCalcs);
-//        if (!isAdmin)
-//          temp = calcs;
-//        List<Calc> resList = new CopyOnWriteArrayList<>();
-//        for (Calc calc : temp) {
-//          if (calc.userId.equals(userId))
-//            resList.add(calc);
-//        }
-//        return gson.toJson(resList);
-      case "Вклады":
       default:
-        return "Ошибка!";
+        response.sendError(400, "Сервер не понял запрос. Проверьте правильность переменной 'typeCalc'!!!");
+        return null;
     }
   }
 
-  private String getJsonResultOnQuerySave(Integer userId, String typeCalc, String name, JsonElement jsonElement) {
-
-    if (getJsonResultOnQueryRes(userId, typeCalc, name, jsonElement).equals("Ошибка!"))
-      return "Ошибка! Не правильно составлен калькулятор.";
-
+  private Calc newCalc(Integer userId, String typeCalc, String name, JsonElement jsonElement) {
     Calc newCalc = null;
     switch (typeCalc) {
       case "Осаго": {
@@ -204,58 +241,87 @@ public class EditCalcAjaxServlet extends HttpServlet {
       } break;
       default: break;
     }
-    newCalc.userId = userId;
-    newCalc.type = typeCalc;
+    if (newCalc != null) {
+      newCalc.userId = userId;
+      newCalc.type = typeCalc;
+    }
+    return newCalc;
+  }
 
-    dbWorker.addUserCalc(newCalc);
-    EditCalcAjaxServlet.calcs.add(newCalc);
+  private String getJsonResultOnQuerySave(HttpServletResponse response, Integer userId, String typeCalc, String name,
+                                          JsonElement jsonElement) throws IOException {
+
+    return getJsonResultOnQuerySave(response, userId, typeCalc, name, jsonElement, null);
+  }
+  private String getJsonResultOnQuerySave(HttpServletResponse response, Integer userId, String typeCalc, String name,
+                                          JsonElement jsonElement, Integer calcId) throws IOException {
+
+    if (getJsonResultOnQueryRes(response, userId, typeCalc, name, jsonElement).equals("Ошибка!")) {
+      response.sendError(400, "Сервер не понял запрос. Не удалось произвести расчет данных. Проверьте правильность данных элементов калькулятора!!!");
+      return null;
+    }
+
+    Calc newCalc = newCalc(userId, typeCalc, name, jsonElement);
+    boolean isUpdate = false;
+    if (calcId != null) {
+      newCalc.calcId = calcId;
+      isUpdate = true;
+    }
+    dbWorker.addUserCalc(newCalc, isUpdate);
     return new Gson().toJson(newCalc);
   }
 
-  private String getJsonResultOnQueryRes(Integer userId, String typeCalc, String name, JsonElement jsonElement) {
+  private String getJsonResultOnQueryRes(HttpServletResponse response, Integer userId, String typeCalc, String name, JsonElement jsonElement) throws IOException {
 
     String json = "", out = "";
-    
-    switch (typeCalc) {
-      case "Осаго": {
-        CalcOsago calc = new CalcOsago(name);
-        Type listType = new TypeToken<List<ListValue>>() {}.getType();
-        List<ListValue> list = new Gson().fromJson(jsonElement, listType);
-        out = CalcOsago.getResult(calc.getDefaultResult(), list);
-        json = new Gson().toJson(out);
-      }
-      break;
-      case "Кредит": {
-        CalcCredit calc = new CalcCredit(name);
-        Type listType = new TypeToken<List<Element>>() {}.getType();
-        List<Element> list = new Gson().fromJson(jsonElement, listType);
-        json = CalcCredit.getResult(calc.getDefaultResult(), list);
-      }
-      break;
-      case "Вклады": {
-      }
-      break;
-      case "Ипотека": {
-        CalcIpoteka calc = new CalcIpoteka(name);
-        Type listType = new TypeToken<List<Element>>() {}.getType();
-        List<Element> list = new Gson().fromJson(jsonElement, listType);
-        json = CalcIpoteka.getResult(calc.getDefaultResult(), list);
-      }
-      break;
-      default:
+
+
+    try {
+      switch (typeCalc) {
+        case "Осаго": {
+          CalcOsago calc = new CalcOsago(name);
+          Type listType = new TypeToken<List<ListValue>>() {}.getType();
+          List<ListValue> list = new Gson().fromJson(jsonElement, listType);
+          out = CalcOsago.getResult(calc.getDefaultResult(), list);
+          json = new Gson().toJson(out);
+        }
         break;
+        case "Кредит":
+        case "Ипотека": {
+          Calc calc = null;
+          Type listType = new TypeToken<List<Element>>() {}.getType();
+          List<Element> list = new Gson().fromJson(jsonElement, listType);
+
+          if (typeCalc.equals("Кредит")) {
+            calc = new CalcCredit(name);
+            json = CalcCredit.getResult(calc.getDefaultResult(), list);
+          }
+          else {
+            calc = new CalcIpoteka(name);
+            json = CalcIpoteka.getResult(calc.getDefaultResult(), list);
+          }
+        }
+        break;
+        default:
+          response.sendError(400, "Сервер не понял запрос. Проверьте правильность переменной 'typeCalc'!!!");
+          return null;
+      }
+    } catch (Exception e) {
+      e.printStackTrace();
+      response.sendError(400, "Сервер не понял запрос. Не удалось произвести расчет данных. Проверьте правильность данных элементов калькулятора!!!");
+      return null;
     }
-    
     return json;
   }
 
-  private String getJsonResultOnQueryDel(Integer userId, Integer index, Boolean isAdmin) {
+  private String getJsonResultOnQueryDel(HttpServletResponse response, Integer userId, Integer calcId, Boolean isAdmin) throws IOException {
 
     if (!isAdmin) {
-      dbWorker.deleteCalc(userId, index);
-      defaultCalcs.remove(index);
-      return "Успешно удалено!";
+      dbWorker.deleteCalc(userId, calcId);
+      //defaultCalcs.remove(index);
+      return new Gson().toJson("Успешно удалено!");
     }
-    return "Ошибка!";
+    response.sendError(400, "Сервер не понял запрос. Удаление не произошло!!!");
+    return null;
   }
 }

@@ -17,7 +17,6 @@ public class LogoutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        System.out.println("logout");
         final HttpSession session = request.getSession();
 
         session.removeAttribute("password");
@@ -25,8 +24,5 @@ public class LogoutServlet extends HttpServlet {
         session.removeAttribute("role");
 
         response.sendRedirect("/");
-        //response.sendRedirect(super.getServletContext().getContextPath());
-        //req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req, resp);
     }
-
 }
