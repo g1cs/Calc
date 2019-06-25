@@ -38,8 +38,9 @@
 	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/osago_reso/jquery.cookie.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/osago_reso/jquery-custom-widgets.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/resources/osago_reso/jquery.ui.datepicker-ru.js"></script>
-
-
+	<link href="${pageContext.request.contextPath}/resources/css/class.css" rel="stylesheet"/>
+	<link href="${pageContext.request.contextPath}/resources/css/elements.css" rel="stylesheet"/>
+	<script src="${pageContext.request.contextPath}/resources/js/calc.js"></script>
 
 
 
@@ -67,12 +68,9 @@
 <%--<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">--%>
 
 <%--<link href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet" />--%>
-<link href="${pageContext.request.contextPath}/resources/css/edit.css" rel="stylesheet" />
+<%--<link href="${pageContext.request.contextPath}/resources/css/edit.css" rel="stylesheet" />--%>
 <%--<link href="${pageContext.request.contextPath}/resources/css/calcs.css" rel="stylesheet" />--%>
 
-<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/osago_reso/selective.css">
-
-<script src="${pageContext.request.contextPath}/resources/js/calc.js"></script>
 
 <script>
 
@@ -1307,8 +1305,7 @@
 						<div>
 							<div class="clearfix">
 								<div class="content-text">
-									<div class="calc" id="1"></div>
-									<!--
+
 			<div class="text clearfix">
 
 
@@ -1317,24 +1314,22 @@
 					<h1>Калькулятор ОСАГО</h1>
 
 
-				<div><div>
+				<div>
+					<div class="calc" id="1"></div>
+					<%--<div>--%>
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/resources/osago_reso/osago.js"></script>
-	<div class="action__form-osago">
-			<div class="frmtr-action">
-				<form action="https://www.reso.ru/Retail/AGO/OSAGO/Calculator/" method="post" name="osago">
+<%--<script type="text/javascript" src="${pageContext.request.contextPath}/resources/osago_reso/osago.js"></script>--%>
+	<%--<div class="action__form-osago">--%>
+			<%--<div class="frmtr-action">--%>
+				<%--<form action="https://www.reso.ru/Retail/AGO/OSAGO/Calculator/" method="post" name="osago">--%>
 
-					<div class="calculator-table-hold">
-						<table class="calculator-table">
-							<colgroup>
-								<col class="col_one">
-								<col class="col_two">
-							</colgroup>
-        					<tbody>
-
-
-
-
+					<%--<div class="calculator-table-hold">--%>
+						<%--<table class="calculator-table">--%>
+							<%--<colgroup>--%>
+								<%--<col class="col_one">--%>
+								<%--<col class="col_two">--%>
+							<%--</colgroup>--%>
+        					<%--<tbody>--%>
 
 
 
@@ -1351,212 +1346,216 @@
 
 
 
-<tr>
-	<td class="col-1">Страхователь</td>
-	<td class="col-2">
-	    <input type="hidden" name="timeZone">
-
-		<input name="face" id="face-1" checked="" value="0" type="radio" class="input__radio">
-		<label for="face-1" style="width: 209px;float:left;position:relative;">Физическое лицо</label>
-		<input name="face" id="face-2" value="1" type="radio" class="input__radio">
-		<label for="face-2">Юридическое лицо</label>
-		<div class="clear"></div>
-		<div for="face" class="field__error"></div>
-	</td>
-</tr>
-
-<tr class="even">
-	<td class="col-1">Место жительства собственника</td>
-	<td class="col-2">
-		<div>
-			<input name="territoryId" style="width: 471px;" type="hidden" class="auto-clear input__text" value="1"><input class="auto-clear input__text ui-autocomplete-input" type="text" style="width: 471px;" autocomplete="off">
-		</div>
-		<div>
-			<a id="show-territory-button" onclick="showTerrritoryPanel()" style="/*margin-left:20px;*/">Выбрать из списка</a>
-		</div>
-		<div class="clear"></div>
-		<div for="territoryId" class="field__error"></div>
-	</td>
-</tr>
-
-<tr class="even">
-	<td colspan="2" style="padding-top: 0px;padding-right: 15px;">
-		<div class="adv-options clearfix" id="territory-panel" style="display: none;">
-			<div class="adv-options-corner-full"></div>
-			<div id="territory-list"><ul class="territory-list"><div class="territory-block territory-block-main"><div class="territory-block-letter">&nbsp;</div><li><a>Москва</a></li><li><a>Московская область</a></li><li><a>Санкт-Петербург</a></li><li><a>Ленинградская область</a></li></div><div class="territory-block"><div class="territory-letter">А</div><li><a class="cities-gruop-link"><span>Алтайский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="22" class="cities-panel"><li><a>Барнаул</a></li><li><a>Бийск</a></li><li><a>Заринск</a></li><li><a>Новоалтайск</a></li><li><a>Рубцовск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Амурская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="28" class="cities-panel"><li><a>Белогорск</a></li><li><a>Благовещенск Амурской обл</a></li><li><a>Свободный</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Архангельская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="29" class="cities-panel"><li><a>Архангельск</a></li><li><a>Котлас</a></li><li><a>Северодвинск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Астраханская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="30" class="cities-panel"><li><a>Астрахань</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">Б</div><li><a class="cities-gruop-link"><span>Белгородская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="31" class="cities-panel"><li><a>Белгород</a></li><li><a>Губкин</a></li><li><a>Старый Оскол</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Брянская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="32" class="cities-panel"><li><a>Брянск</a></li><li><a>Клинцы</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block-delimeter"></div><div class="territory-block"><div class="territory-letter">В</div><li><a class="cities-gruop-link"><span>Владимирская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="33" class="cities-panel"><li><a>Владимир</a></li><li><a>Гусь-Хрустальный</a></li><li><a>Муром</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Волгоградская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="34" class="cities-panel"><li><a>Волгоград</a></li><li><a>Волжский</a></li><li><a>Камышин</a></li><li><a>Михайловка</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Вологодская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="35" class="cities-panel"><li><a>Вологда</a></li><li><a>Череповец</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Воронежская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="36" class="cities-panel"><li><a>Борисоглебск</a></li><li><a>Воронеж</a></li><li><a>Лиски</a></li><li><a>Россошь</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">Е</div><li><a class="cities-gruop-link"><span>Еврейская автономная<br>область</span><span class="img-arrow"></span></a></li><div cities-panel-id="79" class="cities-panel"><li><a>Биробиджан</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">З</div><li><a class="cities-gruop-link"><span>Забайкальский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="75" class="cities-panel"><li><a>Краснокаменск</a></li><li><a>Чита</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block-delimeter"></div><div class="territory-block"><div class="territory-letter">И</div><li><a class="cities-gruop-link"><span>Ивановская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="37" class="cities-panel"><li><a>Иваново</a></li><li><a>Кинешма</a></li><li><a>Шуя</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Иркутская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="38" class="cities-panel"><li><a>Ангарск</a></li><li><a>Братск</a></li><li><a>Иркутск</a></li><li><a>Тулун</a></li><li><a>Усолье-Сибирское</a></li><li><a>Усть-Илимск</a></li><li><a>Усть-Кут</a></li><li><a>Черемхово</a></li><li><a>Шелехов</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">К</div><li><a class="cities-gruop-link"><span>Кабардино-Балкарская<br>Республика</span><span class="img-arrow"></span></a></li><div cities-panel-id="7" class="cities-panel"><li><a>Нальчик</a></li><li><a>Прохладный</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Калининградская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="39" class="cities-panel"><li><a>Калининград</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Калужская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="40" class="cities-panel"><li><a>Калуга</a></li><li><a>Обнинск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Камчатский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="41" class="cities-panel"><li><a>Петропавловск-Камчатский</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Карачаево-Черкесская<br>Республика</span><span class="img-arrow"></span></a></li><div cities-panel-id="9" class="cities-panel"><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Кемеровская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="42" class="cities-panel"><li><a>Анжеро-Судженск</a></li><li><a>Белово</a></li><li><a>Кемерово</a></li><li><a>Киселёвск</a></li><li><a>Междуреченск</a></li><li><a>Новокузнецк</a></li><li><a>Осинники</a></li><li><a>Прокопьевск</a></li><li><a>Юрга</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Кировская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="43" class="cities-panel"><li><a>Киров Кировской обл</a></li><li><a>Кирово-Чепецк</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Костромская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="44" class="cities-panel"><li><a>Кострома</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Краснодарский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="23" class="cities-panel"><li><a>Анапа</a></li><li><a>Армавир</a></li><li><a>Белореченск</a></li><li><a>Геленджик</a></li><li><a>Ейск</a></li><li><a>Краснодар</a></li><li><a>Кропоткин</a></li><li><a>Крымск</a></li><li><a>Курганинск</a></li><li><a>Лабинск</a></li><li><a>Новороссийск</a></li><li><a>Славянск-на-Кубани</a></li><li><a>Сочи</a></li><li><a>Тимашёвск</a></li><li><a>Тихорецк</a></li><li><a>Туапсе</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Красноярский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="24" class="cities-panel"><li><a>Ачинск</a></li><li><a>Железногорск Красноярский край</a></li><li><a>Зеленогорск</a></li><li><a>Канск</a></li><li><a>Красноярск</a></li><li><a>Лесосибирск</a></li><li><a>Минусинск</a></li><li><a>Назарово</a></li><li><a>Норильск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Курганская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="45" class="cities-panel"><li><a>Курган</a></li><li><a>Шадринск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Курская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="46" class="cities-panel"><li><a>Железногорск Курской обл</a></li><li><a>Курск</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">Л</div><li><a class="cities-gruop-link"><span>Липецкая область</span><span class="img-arrow"></span></a></li><div cities-panel-id="48" class="cities-panel"><li><a>Елец</a></li><li><a>Липецк</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block-delimeter"></div><div class="territory-block"><div class="territory-letter">М</div><li><a class="cities-gruop-link"><span>Магаданская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="49" class="cities-panel"><li><a>Магадан</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Мурманская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="51" class="cities-panel"><li><a>Апатиты</a></li><li><a>Мончегорск</a></li><li><a>Мурманск</a></li><li><a>Североморск</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">Н</div><li><a class="cities-gruop-link"><span>Ненецкий автономный<br>округ</span><span class="img-arrow"></span></a></li><div cities-panel-id="83" class="cities-panel"><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Нижегородская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="52" class="cities-panel"><li><a>Арзамас</a></li><li><a>Балахна</a></li><li><a>Бор</a></li><li><a>Выкса</a></li><li><a>Дзержинск</a></li><li><a>Кстово</a></li><li><a>Нижний Новгород</a></li><li><a>Саров</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Новгородская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="53" class="cities-panel"><li><a>Боровичи</a></li><li><a>Великий Новгород</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Новосибирская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="54" class="cities-panel"><li><a>Бердск</a></li><li><a>Искитим</a></li><li><a>Куйбышев</a></li><li><a>Новосибирск</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">О</div><li><a class="cities-gruop-link"><span>Омская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="55" class="cities-panel"><li><a>Омск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Оренбургская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="56" class="cities-panel"><li><a>Бугуруслан</a></li><li><a>Бузулук</a></li><li><a>Новотроицк</a></li><li><a>Оренбург</a></li><li><a>Орск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Орловская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="57" class="cities-panel"><li><a>Ливны</a></li><li><a>Мценск</a></li><li><a>Орёл</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block-delimeter"></div><div class="territory-block"><div class="territory-letter">П</div><li><a class="cities-gruop-link"><span>Пензенская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="58" class="cities-panel"><li><a>Заречный Пензенской обл.</a></li><li><a>Кузнецк</a></li><li><a>Пенза</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Пермский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="59" class="cities-panel"><li><a>Березники</a></li><li><a>Краснокамск</a></li><li><a>Лысьва</a></li><li><a>Пермь</a></li><li><a>Соликамск</a></li><li><a>Чайковский</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Приморский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="25" class="cities-panel"><li><a>Арсеньев</a></li><li><a>Артём</a></li><li><a>Владивосток</a></li><li><a>Находка</a></li><li><a>Спасск-Дальний</a></li><li><a>Уссурийск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Псковская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="60" class="cities-panel"><li><a>Великие Луки</a></li><li><a>Псков</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">Р</div><li><a class="cities-gruop-link"><span>Республика Адыгея</span><span class="img-arrow"></span></a></li><div cities-panel-id="1" class="cities-panel"><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Алтай</span><span class="img-arrow"></span></a></li><div cities-panel-id="4" class="cities-panel"><li><a>Горно-Алтайск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Башкортостан</span><span class="img-arrow"></span></a></li><div cities-panel-id="2" class="cities-panel"><li><a>Благовещенск Башкортостан</a></li><li><a>Ишимбай</a></li><li><a>Кумертау</a></li><li><a>Октябрьский Башкортостан</a></li><li><a>Салават</a></li><li><a>Стерлитамак</a></li><li><a>Туймазы</a></li><li><a>Уфа</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Бурятия</span><span class="img-arrow"></span></a></li><div cities-panel-id="3" class="cities-panel"><li><a>Улан-Удэ</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Дагестан</span><span class="img-arrow"></span></a></li><div cities-panel-id="5" class="cities-panel"><li><a>Буйнакск</a></li><li><a>Дербент</a></li><li><a>Каспийск</a></li><li><a>Махачкала</a></li><li><a>Хасавюрт</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Ингушетия</span><span class="img-arrow"></span></a></li><div cities-panel-id="6" class="cities-panel"><li><a>Малгобек</a></li><li><a>Назрань</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Калмыкия</span><span class="img-arrow"></span></a></li><div cities-panel-id="8" class="cities-panel"><li><a>Элиста</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Карелия</span><span class="img-arrow"></span></a></li><div cities-panel-id="10" class="cities-panel"><li><a>Петрозаводск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Коми</span><span class="img-arrow"></span></a></li><div cities-panel-id="11" class="cities-panel"><li><a>Сыктывкар</a></li><li><a>Ухта</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Крым</span><span class="img-arrow"></span></a></li><div cities-panel-id="91" class="cities-panel"><li><a>Симферополь</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Марий Эл</span><span class="img-arrow"></span></a></li><div cities-panel-id="12" class="cities-panel"><li><a>Волжск</a></li><li><a>Йошкар-Ола</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Мордовия</span><span class="img-arrow"></span></a></li><div cities-panel-id="13" class="cities-panel"><li><a>Рузаевка</a></li><li><a>Саранск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Саха (Якутия)</span><span class="img-arrow"></span></a></li><div cities-panel-id="14" class="cities-panel"><li><a>Нерюнгри</a></li><li><a>Якутск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Северная<br>Осетия</span><span class="img-arrow"></span></a></li><div cities-panel-id="15" class="cities-panel"><li><a>Владикавказ</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Татарстан</span><span class="img-arrow"></span></a></li><div cities-panel-id="16" class="cities-panel"><li><a>Альметьевск</a></li><li><a>Бугульма</a></li><li><a>Елабуга</a></li><li><a>Зеленодольск</a></li><li><a>Казань</a></li><li><a>Лениногорск</a></li><li><a>Набережные Челны</a></li><li><a>Нижнекамск</a></li><li><a>Чистополь</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Тыва (Тува)</span><span class="img-arrow"></span></a></li><div cities-panel-id="17" class="cities-panel"><li><a>Кызыл</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Хакасия</span><span class="img-arrow"></span></a></li><div cities-panel-id="19" class="cities-panel"><li><a>Абакан</a></li><li><a>Саяногорск</a></li><li><a>Черногорск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Ростовская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="61" class="cities-panel"><li><a>Азов</a></li><li><a>Батайск</a></li><li><a>Волгодонск</a></li><li><a>Гуково</a></li><li><a>Каменск-Шахтинский</a></li><li><a>Новочеркасск</a></li><li><a>Новошахтинск</a></li><li><a>Ростов-на-Дону</a></li><li><a>Сальск</a></li><li><a>Таганрог</a></li><li><a>Шахты</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Рязанская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="62" class="cities-panel"><li><a>Рязань</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">С</div><li><a class="cities-gruop-link"><span>Самарская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="63" class="cities-panel"><li><a>Новокуйбышевск</a></li><li><a>Самара</a></li><li><a>Сызрань</a></li><li><a>Тольятти</a></li><li><a>Чапаевск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Саратовская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="64" class="cities-panel"><li><a>Балаково</a></li><li><a>Балашов</a></li><li><a>Вольск</a></li><li><a>Саратов</a></li><li><a>Энгельс</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Сахалинская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="65" class="cities-panel"><li><a>Южно-Сахалинск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Свердловская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="66" class="cities-panel"><li><a>Асбест</a></li><li><a>Березовский</a></li><li><a>Верхняя Пышма</a></li><li><a>Верхняя Салда</a></li><li><a>Екатеринбург</a></li><li><a>Новоуральск</a></li><li><a>Первоуральск</a></li><li><a>Полевской</a></li><li><a>Ревда Свердловской обл</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>г. Севастополь</span><span class="img-arrow"></span></a></li><div cities-panel-id="92" class="cities-panel"><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Смоленская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="67" class="cities-panel"><li><a>Вязьма</a></li><li><a>Рославль</a></li><li><a>Сафоново</a></li><li><a>Смоленск</a></li><li><a>Ярцево</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Ставропольский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="26" class="cities-panel"><li><a>Будённовск</a></li><li><a>Георгиевск</a></li><li><a>Ессентуки</a></li><li><a>Кисловодск</a></li><li><a>Минеральные Воды</a></li><li><a>Михайловск Ставропольского края</a></li><li><a>Невинномысск</a></li><li><a>Пятигорск</a></li><li><a>Ставрополь</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block-delimeter"></div><div class="territory-block"><div class="territory-letter">Т</div><li><a class="cities-gruop-link"><span>Тамбовская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="68" class="cities-panel"><li><a>Мичуринск</a></li><li><a>Тамбов</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Тверская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="69" class="cities-panel"><li><a>Вышний Волочёк</a></li><li><a>Кимры</a></li><li><a>Ржев</a></li><li><a>Тверь</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Томская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="70" class="cities-panel"><li><a>Северск</a></li><li><a>Томск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Тульская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="71" class="cities-panel"><li><a>Алексин</a></li><li><a>Ефремов</a></li><li><a>Новомосковск</a></li><li><a>Тула</a></li><li><a>Узловая</a></li><li><a>Щёкино</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Тюменская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="72" class="cities-panel"><li><a>Тобольск</a></li><li><a>Тюмень</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">У</div><li><a class="cities-gruop-link"><span>Удмуртская Республика</span><span class="img-arrow"></span></a></li><div cities-panel-id="18" class="cities-panel"><li><a>Воткинск</a></li><li><a>Глазов</a></li><li><a>Ижевск</a></li><li><a>Сарапул</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Ульяновская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="73" class="cities-panel"><li><a>Димитровград</a></li><li><a>Ульяновск</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">Х</div><li><a class="cities-gruop-link"><span>Хабаровский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="27" class="cities-panel"><li><a>Амурск</a></li><li><a>Комсомольск-на-Амуре</a></li><li><a>Хабаровск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Ханты-Мансийский<br>автономный округ</span><span class="img-arrow"></span></a></li><div cities-panel-id="86" class="cities-panel"><li><a>Когалым</a></li><li><a>Нефтеюганск</a></li><li><a>Нижневартовск</a></li><li><a>Нягань</a></li><li><a>Сургут</a></li><li><a>Ханты-Мансийск</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block-delimeter"></div><div class="territory-block"><div class="territory-letter">Ч</div><li><a class="cities-gruop-link"><span>Челябинская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="74" class="cities-panel"><li><a>Златоуст</a></li><li><a>Копейск</a></li><li><a>Магнитогорск</a></li><li><a>Миасс</a></li><li><a>Сатка</a></li><li><a>Чебаркуль</a></li><li><a>Челябинск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Чеченская Республика</span><span class="img-arrow"></span></a></li><div cities-panel-id="20" class="cities-panel"><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Чувашская Республика</span><span class="img-arrow"></span></a></li><div cities-panel-id="21" class="cities-panel"><li><a>Канаш</a></li><li><a>Новочебоксарск</a></li><li><a>Чебоксары</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Чукотский автономный<br>округ</span><span class="img-arrow"></span></a></li><div cities-panel-id="87" class="cities-panel"><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">Я</div><li><a class="cities-gruop-link"><span>Ямало-Ненецкий<br>автономный округ</span><span class="img-arrow"></span></a></li><div cities-panel-id="89" class="cities-panel"><li><a>Новый Уренгой</a></li><li><a>Ноябрьск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Ярославская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="76" class="cities-panel"><li><a>Ярославль</a></li><li><a>другие населенные пункты</a></li></div></div></ul></div>
-		</div>
-	</td>
-</tr>
-
-<tr>
-	<td class="col-1">Категория автомобилей</td>
-	<td class="col-2">
-		<span style="float:left; width:100%; position:relative;">
-			<select name="category" id="category" tabindex="-1" class="selectized" style="display: none;"><option value="1" selected="selected">Легковые автомобили</option></select><div class="selectize-control single"><div class="selectize-input items full has-options has-items"><div data-value="1" class="item">Легковые автомобили</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown single" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
-		</span>
-	</td>
-</tr>
-
-<tr class="even">
-	<td class="col-1">Информация об авто</td>
-	<td class="col-2">
-		<label class="float-label">Мощность</label>
-		<span style="float:left; width:250px; position:relative;">
-			<select name="power" id="power" class="simple-selectize selectized" tabindex="-1" style="display: none;"><option value="2" selected="selected">свыше 70 до 100 включительно</option></select><div class="selectize-control simple-selectize single"><div class="selectize-input items full has-options has-items"><div data-value="2" class="item">свыше 70 до 100 включительно</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown single simple-selectize" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
-		</span>
-        <span style="width:80px;padding-top:5px;float:left;">
-
-
-			<input type="checkbox" name="carUsedTrailer" id="carUsedTrailer" class="input__checkbox">
-			<label for="carUsedTrailer" class="float-right">Прицеп</label>
-		</span>
-		<div class="clear"></div>
-		<span style="float:left; width:240px; position:relative;">
-			<div for="power" class="field__error"></div>
-		</span>
-        <span style="float:right; width:95px; position:relative;padding-top:2px">
-			<div for="carUsedTrailer" class="field__error"></div>
-		</span>
-	</td>
-</tr>
-
-<tr>
-	<td class="col-1">Период использования</td>
-	<td class="col-2">
-		<span style="float:left; width:190px; position:relative;">
-			<select name="period" id="period" class="simple-selectize selectized" tabindex="-1" style="display: none;"><option value="7" selected="selected">10 месяцев и более</option></select><div class="selectize-control simple-selectize single"><div class="selectize-input items full has-options has-items"><div data-value="7" class="item">10 месяцев и более</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown single simple-selectize" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
-		</span>
-	</td>
-</tr>
-
-<tr class="even">
-	<td class="col-1">Лица, допущенные к управлению</td>
-	<td class="col-2">
-		<span style="float:left; width:209px; position:relative;">
-			<input name="driverList" id="driverList-1" style="width: 160px" value="0" type="radio" class="input__radio">
-			<label for="driverList-1">Без ограничений</label>
-			<span data-placement="bottom" class="tooltip-show" title="" data-original-title="Договор обязательного страхования автогражданской ответственности без ограничения количества лиц, допущенных к управлению."></span>
-		</span>
-
-		<input name="driverList" id="driverList-0" checked="" style="width: 200px" value="1" type="radio" class="input__radio">
-		<label for="driverList-0">Ограничений список</label>
-		<a class="js-driver-add"></a>
-		<div class="clear"></div>
-		<div for="driverList" class="field__error"></div>
-		<input name="driverCount" id="driverCount" style="display:none" value="1" class="null">
-	</td>
-</tr>
-
-<tr class="kbm-general" style="display: none;">
-	<td>
-		<span>Класс бонуса-малуса</span>
-		<span data-placement="bottom" class="tooltip-show" title="" data-original-title="Определяется по собственнику автомобиля"></span>
-	</td>
-	<td>
-		<span class="kbm-selectize" style="float:left;width:60px;">
-			<select name="kbm" style="width: 50px; display: none;" class="simple-selectize selectized" tabindex="-1"><option value="3" selected="selected">3</option></select><div class="selectize-control simple-selectize single" style="width: 50px;"><div class="selectize-input items full has-options has-items"><div data-value="3" class="item">3</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown single simple-selectize" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
-		</span>
-		<div class="clear"></div>
-		<div for="kbm" class="field__error"></div>
-	</td>
-</tr>
 
 
 
 
+<%--<tr>--%>
+	<%--<td class="col-1">Страхователь</td>--%>
+	<%--<td class="col-2">--%>
+	    <%--<input type="hidden" name="timeZone">--%>
 
-	<tr class="js-driver-main osago-driver" id="driver0">
-		<td class="col-1" style="font-weight: normal;">
-			<span>
-				Возраст
-			</span>
-			<span title="" data-toggle="tooltip" data-placement="bottom" class="driver-tooltip-show tooltip-show" data-original-title="Количество полных лет"></span>
-			<div style="margin-right:25px;">
-				<input name="age0" id="age0" style="width: 45px; text-align: right;" value="22" type="text" class="auto-clear input__text" data-prev-value="">
-			</div>
-			<div class="clear"></div>
-			<div for="age0" class="field__error"></div>
-		</td>
-		<td>
-			<div>
-				<span>
-					Cтаж водителя
-				</span>
-				<span title="" data-toggle="tooltip" data-placement="bottom" class="driver-tooltip-show tooltip-show" data-original-title="Стаж водителя"></span>
-				<div style="margin-right:30px;">
-					<input name="stage0" id="stage0" style="width: 45px; text-align: right;" value="2" type="text" class="auto-clear input__text" data-prev-value="">
-				</div>
-				<div class="clear"></div>
-				<div for="stage0" class="field__error"></div>
-			</div>
+		<%--<input name="face" id="face-1" checked="" value="0" type="radio" class="input__radio">--%>
+		<%--<label for="face-1" style="width: 209px;float:left;position:relative;">Физическое лицо</label>--%>
+		<%--<input name="face" id="face-2" value="1" type="radio" class="input__radio">--%>
+		<%--<label for="face-2">Юридическое лицо</label>--%>
+		<%--<div class="clear"></div>--%>
+		<%--<div for="face" class="field__error"></div>--%>
+	<%--</td>--%>
+<%--</tr>--%>
 
-			<div>
-				<span>
-					Класс бонуса-малуса
-				</span>
-				<span data-placement="bottom" class="driver-tooltip-show tooltip-show" title="" data-original-title="Определяется исходя из количества аварий, виновником которых были Вы, в период действия годового договора ОСАГО."></span>
-				<span class="kbm-selectize">
-					<select name="kbm0" style="width: 50px; display: none;" class="simple-selectize selectized" tabindex="-1"><option value="3" selected="selected">3</option></select><div class="selectize-control simple-selectize single" style="width: 50px;"><div class="selectize-input items full has-options has-items"><div data-value="3" class="item">3</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown single simple-selectize" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
-				</span>
-				<div class="clear"></div>
-				<div for="kbm0" class="field__error"></div>
-			</div>
+<%--<tr class="even">--%>
+	<%--<td class="col-1">Место жительства собственника</td>--%>
+	<%--<td class="col-2">--%>
+		<%--<div>--%>
+			<%--<input name="territoryId" style="width: 471px;" type="hidden" class="auto-clear input__text" value="1"><input class="auto-clear input__text ui-autocomplete-input" type="text" style="width: 471px;" autocomplete="off">--%>
+		<%--</div>--%>
+		<%--<div>--%>
+			<%--<a id="show-territory-button" onclick="showTerrritoryPanel()" style="/*margin-left:20px;*/">Выбрать из списка</a>--%>
+		<%--</div>--%>
+		<%--<div class="clear"></div>--%>
+		<%--<div for="territoryId" class="field__error"></div>--%>
+	<%--</td>--%>
+<%--</tr>--%>
 
-			<div style="float:right;"><a class="js-driver-del js-driver-del-0" style="display: none;"></a></div>
-		</td>
-	</tr>
+<%--<tr class="even">--%>
+	<%--<td colspan="2" style="padding-top: 0px;padding-right: 15px;">--%>
+		<%--<div class="adv-options clearfix" id="territory-panel" style="display: none;">--%>
+			<%--<div class="adv-options-corner-full"></div>--%>
+			<%--<div id="territory-list"><ul class="territory-list"><div class="territory-block territory-block-main"><div class="territory-block-letter">&nbsp;</div><li><a>Москва</a></li><li><a>Московская область</a></li><li><a>Санкт-Петербург</a></li><li><a>Ленинградская область</a></li></div><div class="territory-block"><div class="territory-letter">А</div><li><a class="cities-gruop-link"><span>Алтайский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="22" class="cities-panel"><li><a>Барнаул</a></li><li><a>Бийск</a></li><li><a>Заринск</a></li><li><a>Новоалтайск</a></li><li><a>Рубцовск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Амурская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="28" class="cities-panel"><li><a>Белогорск</a></li><li><a>Благовещенск Амурской обл</a></li><li><a>Свободный</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Архангельская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="29" class="cities-panel"><li><a>Архангельск</a></li><li><a>Котлас</a></li><li><a>Северодвинск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Астраханская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="30" class="cities-panel"><li><a>Астрахань</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">Б</div><li><a class="cities-gruop-link"><span>Белгородская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="31" class="cities-panel"><li><a>Белгород</a></li><li><a>Губкин</a></li><li><a>Старый Оскол</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Брянская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="32" class="cities-panel"><li><a>Брянск</a></li><li><a>Клинцы</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block-delimeter"></div><div class="territory-block"><div class="territory-letter">В</div><li><a class="cities-gruop-link"><span>Владимирская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="33" class="cities-panel"><li><a>Владимир</a></li><li><a>Гусь-Хрустальный</a></li><li><a>Муром</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Волгоградская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="34" class="cities-panel"><li><a>Волгоград</a></li><li><a>Волжский</a></li><li><a>Камышин</a></li><li><a>Михайловка</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Вологодская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="35" class="cities-panel"><li><a>Вологда</a></li><li><a>Череповец</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Воронежская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="36" class="cities-panel"><li><a>Борисоглебск</a></li><li><a>Воронеж</a></li><li><a>Лиски</a></li><li><a>Россошь</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">Е</div><li><a class="cities-gruop-link"><span>Еврейская автономная<br>область</span><span class="img-arrow"></span></a></li><div cities-panel-id="79" class="cities-panel"><li><a>Биробиджан</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">З</div><li><a class="cities-gruop-link"><span>Забайкальский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="75" class="cities-panel"><li><a>Краснокаменск</a></li><li><a>Чита</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block-delimeter"></div><div class="territory-block"><div class="territory-letter">И</div><li><a class="cities-gruop-link"><span>Ивановская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="37" class="cities-panel"><li><a>Иваново</a></li><li><a>Кинешма</a></li><li><a>Шуя</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Иркутская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="38" class="cities-panel"><li><a>Ангарск</a></li><li><a>Братск</a></li><li><a>Иркутск</a></li><li><a>Тулун</a></li><li><a>Усолье-Сибирское</a></li><li><a>Усть-Илимск</a></li><li><a>Усть-Кут</a></li><li><a>Черемхово</a></li><li><a>Шелехов</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">К</div><li><a class="cities-gruop-link"><span>Кабардино-Балкарская<br>Республика</span><span class="img-arrow"></span></a></li><div cities-panel-id="7" class="cities-panel"><li><a>Нальчик</a></li><li><a>Прохладный</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Калининградская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="39" class="cities-panel"><li><a>Калининград</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Калужская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="40" class="cities-panel"><li><a>Калуга</a></li><li><a>Обнинск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Камчатский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="41" class="cities-panel"><li><a>Петропавловск-Камчатский</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Карачаево-Черкесская<br>Республика</span><span class="img-arrow"></span></a></li><div cities-panel-id="9" class="cities-panel"><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Кемеровская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="42" class="cities-panel"><li><a>Анжеро-Судженск</a></li><li><a>Белово</a></li><li><a>Кемерово</a></li><li><a>Киселёвск</a></li><li><a>Междуреченск</a></li><li><a>Новокузнецк</a></li><li><a>Осинники</a></li><li><a>Прокопьевск</a></li><li><a>Юрга</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Кировская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="43" class="cities-panel"><li><a>Киров Кировской обл</a></li><li><a>Кирово-Чепецк</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Костромская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="44" class="cities-panel"><li><a>Кострома</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Краснодарский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="23" class="cities-panel"><li><a>Анапа</a></li><li><a>Армавир</a></li><li><a>Белореченск</a></li><li><a>Геленджик</a></li><li><a>Ейск</a></li><li><a>Краснодар</a></li><li><a>Кропоткин</a></li><li><a>Крымск</a></li><li><a>Курганинск</a></li><li><a>Лабинск</a></li><li><a>Новороссийск</a></li><li><a>Славянск-на-Кубани</a></li><li><a>Сочи</a></li><li><a>Тимашёвск</a></li><li><a>Тихорецк</a></li><li><a>Туапсе</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Красноярский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="24" class="cities-panel"><li><a>Ачинск</a></li><li><a>Железногорск Красноярский край</a></li><li><a>Зеленогорск</a></li><li><a>Канск</a></li><li><a>Красноярск</a></li><li><a>Лесосибирск</a></li><li><a>Минусинск</a></li><li><a>Назарово</a></li><li><a>Норильск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Курганская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="45" class="cities-panel"><li><a>Курган</a></li><li><a>Шадринск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Курская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="46" class="cities-panel"><li><a>Железногорск Курской обл</a></li><li><a>Курск</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">Л</div><li><a class="cities-gruop-link"><span>Липецкая область</span><span class="img-arrow"></span></a></li><div cities-panel-id="48" class="cities-panel"><li><a>Елец</a></li><li><a>Липецк</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block-delimeter"></div><div class="territory-block"><div class="territory-letter">М</div><li><a class="cities-gruop-link"><span>Магаданская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="49" class="cities-panel"><li><a>Магадан</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Мурманская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="51" class="cities-panel"><li><a>Апатиты</a></li><li><a>Мончегорск</a></li><li><a>Мурманск</a></li><li><a>Североморск</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">Н</div><li><a class="cities-gruop-link"><span>Ненецкий автономный<br>округ</span><span class="img-arrow"></span></a></li><div cities-panel-id="83" class="cities-panel"><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Нижегородская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="52" class="cities-panel"><li><a>Арзамас</a></li><li><a>Балахна</a></li><li><a>Бор</a></li><li><a>Выкса</a></li><li><a>Дзержинск</a></li><li><a>Кстово</a></li><li><a>Нижний Новгород</a></li><li><a>Саров</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Новгородская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="53" class="cities-panel"><li><a>Боровичи</a></li><li><a>Великий Новгород</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Новосибирская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="54" class="cities-panel"><li><a>Бердск</a></li><li><a>Искитим</a></li><li><a>Куйбышев</a></li><li><a>Новосибирск</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">О</div><li><a class="cities-gruop-link"><span>Омская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="55" class="cities-panel"><li><a>Омск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Оренбургская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="56" class="cities-panel"><li><a>Бугуруслан</a></li><li><a>Бузулук</a></li><li><a>Новотроицк</a></li><li><a>Оренбург</a></li><li><a>Орск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Орловская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="57" class="cities-panel"><li><a>Ливны</a></li><li><a>Мценск</a></li><li><a>Орёл</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block-delimeter"></div><div class="territory-block"><div class="territory-letter">П</div><li><a class="cities-gruop-link"><span>Пензенская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="58" class="cities-panel"><li><a>Заречный Пензенской обл.</a></li><li><a>Кузнецк</a></li><li><a>Пенза</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Пермский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="59" class="cities-panel"><li><a>Березники</a></li><li><a>Краснокамск</a></li><li><a>Лысьва</a></li><li><a>Пермь</a></li><li><a>Соликамск</a></li><li><a>Чайковский</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Приморский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="25" class="cities-panel"><li><a>Арсеньев</a></li><li><a>Артём</a></li><li><a>Владивосток</a></li><li><a>Находка</a></li><li><a>Спасск-Дальний</a></li><li><a>Уссурийск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Псковская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="60" class="cities-panel"><li><a>Великие Луки</a></li><li><a>Псков</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">Р</div><li><a class="cities-gruop-link"><span>Республика Адыгея</span><span class="img-arrow"></span></a></li><div cities-panel-id="1" class="cities-panel"><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Алтай</span><span class="img-arrow"></span></a></li><div cities-panel-id="4" class="cities-panel"><li><a>Горно-Алтайск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Башкортостан</span><span class="img-arrow"></span></a></li><div cities-panel-id="2" class="cities-panel"><li><a>Благовещенск Башкортостан</a></li><li><a>Ишимбай</a></li><li><a>Кумертау</a></li><li><a>Октябрьский Башкортостан</a></li><li><a>Салават</a></li><li><a>Стерлитамак</a></li><li><a>Туймазы</a></li><li><a>Уфа</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Бурятия</span><span class="img-arrow"></span></a></li><div cities-panel-id="3" class="cities-panel"><li><a>Улан-Удэ</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Дагестан</span><span class="img-arrow"></span></a></li><div cities-panel-id="5" class="cities-panel"><li><a>Буйнакск</a></li><li><a>Дербент</a></li><li><a>Каспийск</a></li><li><a>Махачкала</a></li><li><a>Хасавюрт</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Ингушетия</span><span class="img-arrow"></span></a></li><div cities-panel-id="6" class="cities-panel"><li><a>Малгобек</a></li><li><a>Назрань</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Калмыкия</span><span class="img-arrow"></span></a></li><div cities-panel-id="8" class="cities-panel"><li><a>Элиста</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Карелия</span><span class="img-arrow"></span></a></li><div cities-panel-id="10" class="cities-panel"><li><a>Петрозаводск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Коми</span><span class="img-arrow"></span></a></li><div cities-panel-id="11" class="cities-panel"><li><a>Сыктывкар</a></li><li><a>Ухта</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Крым</span><span class="img-arrow"></span></a></li><div cities-panel-id="91" class="cities-panel"><li><a>Симферополь</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Марий Эл</span><span class="img-arrow"></span></a></li><div cities-panel-id="12" class="cities-panel"><li><a>Волжск</a></li><li><a>Йошкар-Ола</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Мордовия</span><span class="img-arrow"></span></a></li><div cities-panel-id="13" class="cities-panel"><li><a>Рузаевка</a></li><li><a>Саранск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Саха (Якутия)</span><span class="img-arrow"></span></a></li><div cities-panel-id="14" class="cities-panel"><li><a>Нерюнгри</a></li><li><a>Якутск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Северная<br>Осетия</span><span class="img-arrow"></span></a></li><div cities-panel-id="15" class="cities-panel"><li><a>Владикавказ</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Татарстан</span><span class="img-arrow"></span></a></li><div cities-panel-id="16" class="cities-panel"><li><a>Альметьевск</a></li><li><a>Бугульма</a></li><li><a>Елабуга</a></li><li><a>Зеленодольск</a></li><li><a>Казань</a></li><li><a>Лениногорск</a></li><li><a>Набережные Челны</a></li><li><a>Нижнекамск</a></li><li><a>Чистополь</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Тыва (Тува)</span><span class="img-arrow"></span></a></li><div cities-panel-id="17" class="cities-panel"><li><a>Кызыл</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Республика Хакасия</span><span class="img-arrow"></span></a></li><div cities-panel-id="19" class="cities-panel"><li><a>Абакан</a></li><li><a>Саяногорск</a></li><li><a>Черногорск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Ростовская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="61" class="cities-panel"><li><a>Азов</a></li><li><a>Батайск</a></li><li><a>Волгодонск</a></li><li><a>Гуково</a></li><li><a>Каменск-Шахтинский</a></li><li><a>Новочеркасск</a></li><li><a>Новошахтинск</a></li><li><a>Ростов-на-Дону</a></li><li><a>Сальск</a></li><li><a>Таганрог</a></li><li><a>Шахты</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Рязанская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="62" class="cities-panel"><li><a>Рязань</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">С</div><li><a class="cities-gruop-link"><span>Самарская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="63" class="cities-panel"><li><a>Новокуйбышевск</a></li><li><a>Самара</a></li><li><a>Сызрань</a></li><li><a>Тольятти</a></li><li><a>Чапаевск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Саратовская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="64" class="cities-panel"><li><a>Балаково</a></li><li><a>Балашов</a></li><li><a>Вольск</a></li><li><a>Саратов</a></li><li><a>Энгельс</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Сахалинская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="65" class="cities-panel"><li><a>Южно-Сахалинск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Свердловская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="66" class="cities-panel"><li><a>Асбест</a></li><li><a>Березовский</a></li><li><a>Верхняя Пышма</a></li><li><a>Верхняя Салда</a></li><li><a>Екатеринбург</a></li><li><a>Новоуральск</a></li><li><a>Первоуральск</a></li><li><a>Полевской</a></li><li><a>Ревда Свердловской обл</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>г. Севастополь</span><span class="img-arrow"></span></a></li><div cities-panel-id="92" class="cities-panel"><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Смоленская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="67" class="cities-panel"><li><a>Вязьма</a></li><li><a>Рославль</a></li><li><a>Сафоново</a></li><li><a>Смоленск</a></li><li><a>Ярцево</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Ставропольский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="26" class="cities-panel"><li><a>Будённовск</a></li><li><a>Георгиевск</a></li><li><a>Ессентуки</a></li><li><a>Кисловодск</a></li><li><a>Минеральные Воды</a></li><li><a>Михайловск Ставропольского края</a></li><li><a>Невинномысск</a></li><li><a>Пятигорск</a></li><li><a>Ставрополь</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block-delimeter"></div><div class="territory-block"><div class="territory-letter">Т</div><li><a class="cities-gruop-link"><span>Тамбовская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="68" class="cities-panel"><li><a>Мичуринск</a></li><li><a>Тамбов</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Тверская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="69" class="cities-panel"><li><a>Вышний Волочёк</a></li><li><a>Кимры</a></li><li><a>Ржев</a></li><li><a>Тверь</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Томская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="70" class="cities-panel"><li><a>Северск</a></li><li><a>Томск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Тульская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="71" class="cities-panel"><li><a>Алексин</a></li><li><a>Ефремов</a></li><li><a>Новомосковск</a></li><li><a>Тула</a></li><li><a>Узловая</a></li><li><a>Щёкино</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Тюменская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="72" class="cities-panel"><li><a>Тобольск</a></li><li><a>Тюмень</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">У</div><li><a class="cities-gruop-link"><span>Удмуртская Республика</span><span class="img-arrow"></span></a></li><div cities-panel-id="18" class="cities-panel"><li><a>Воткинск</a></li><li><a>Глазов</a></li><li><a>Ижевск</a></li><li><a>Сарапул</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Ульяновская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="73" class="cities-panel"><li><a>Димитровград</a></li><li><a>Ульяновск</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">Х</div><li><a class="cities-gruop-link"><span>Хабаровский край</span><span class="img-arrow"></span></a></li><div cities-panel-id="27" class="cities-panel"><li><a>Амурск</a></li><li><a>Комсомольск-на-Амуре</a></li><li><a>Хабаровск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Ханты-Мансийский<br>автономный округ</span><span class="img-arrow"></span></a></li><div cities-panel-id="86" class="cities-panel"><li><a>Когалым</a></li><li><a>Нефтеюганск</a></li><li><a>Нижневартовск</a></li><li><a>Нягань</a></li><li><a>Сургут</a></li><li><a>Ханты-Мансийск</a></li><li><a>другие населенные пункты</a></li></div></div><div class="territory-block-delimeter"></div><div class="territory-block"><div class="territory-letter">Ч</div><li><a class="cities-gruop-link"><span>Челябинская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="74" class="cities-panel"><li><a>Златоуст</a></li><li><a>Копейск</a></li><li><a>Магнитогорск</a></li><li><a>Миасс</a></li><li><a>Сатка</a></li><li><a>Чебаркуль</a></li><li><a>Челябинск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Чеченская Республика</span><span class="img-arrow"></span></a></li><div cities-panel-id="20" class="cities-panel"><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Чувашская Республика</span><span class="img-arrow"></span></a></li><div cities-panel-id="21" class="cities-panel"><li><a>Канаш</a></li><li><a>Новочебоксарск</a></li><li><a>Чебоксары</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Чукотский автономный<br>округ</span><span class="img-arrow"></span></a></li><div cities-panel-id="87" class="cities-panel"><li><a>другие населенные пункты</a></li></div></div><div class="territory-block"><div class="territory-letter">Я</div><li><a class="cities-gruop-link"><span>Ямало-Ненецкий<br>автономный округ</span><span class="img-arrow"></span></a></li><div cities-panel-id="89" class="cities-panel"><li><a>Новый Уренгой</a></li><li><a>Ноябрьск</a></li><li><a>другие населенные пункты</a></li></div><li><a class="cities-gruop-link"><span>Ярославская область</span><span class="img-arrow"></span></a></li><div cities-panel-id="76" class="cities-panel"><li><a>Ярославль</a></li><li><a>другие населенные пункты</a></li></div></div></ul></div>--%>
+		<%--</div>--%>
+	<%--</td>--%>
+<%--</tr>--%>
 
+<%--<tr>--%>
+	<%--<td class="col-1">Категория автомобилей</td>--%>
+	<%--<td class="col-2">--%>
+		<%--<span style="float:left; width:100%; position:relative;">--%>
+			<%--<select name="category" id="category" tabindex="-1" class="selectized" style="display: none;"><option value="1" selected="selected">Легковые автомобили</option></select><div class="selectize-control single"><div class="selectize-input items full has-options has-items"><div data-value="1" class="item">Легковые автомобили</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown single" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>--%>
+		<%--</span>--%>
+	<%--</td>--%>
+<%--</tr>--%>
 
-
-<tr class="js-driver-label" style="display: none;"></tr>
-
-<tr class="even" style="display:none;">
-	<td class="col-1">Страховая сумма ДГО</td>
-	<td class="col-2">
-		<span style="float:left; width:209px; position:relative;">
-			<select name="iSumLiability" id="iSumLiability" style="width: 190px; display: none;" class="simple-selectize selectized" tabindex="-1"><option value="300000" selected="selected">300 000</option></select><div class="selectize-control simple-selectize single" style="width: 190px;"><div class="selectize-input items full has-options has-items"><div data-value="300000" class="item">300 000</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown single simple-selectize" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>
-		</span>
-		<span>
-			Год выпуска ТС
-
-
-			<input name="yearOfManufacture" id="yearOfManufacture" style="width: 60px; text-align: right;" value="2019" type="text" class="auto-clear input__text">
-		</span>
-
-	</td>
-</tr>
+<%--<tr class="even">--%>
+	<%--<td class="col-1">Информация об авто</td>--%>
+	<%--<td class="col-2">--%>
+		<%--<label class="float-label">Мощность</label>--%>
+		<%--<span style="float:left; width:250px; position:relative;">--%>
+			<%--<select name="power" id="power" class="simple-selectize selectized" tabindex="-1" style="display: none;"><option value="2" selected="selected">свыше 70 до 100 включительно</option></select><div class="selectize-control simple-selectize single"><div class="selectize-input items full has-options has-items"><div data-value="2" class="item">свыше 70 до 100 включительно</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown single simple-selectize" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>--%>
+		<%--</span>--%>
+        <%--<span style="width:80px;padding-top:5px;float:left;">--%>
 
 
-<tr>
-									<td></td>
-									<td>
-										<div>
-											<script src="${pageContext.request.contextPath}/resources/osago_reso/api.js"></script><div class="g-recaptcha" data-sitekey="6LfGyzUUAAAAAMvIApXdKm-0INy2J_fk10xXuD2j"><div style="width: 304px; height: 78px;"><div><iframe src="${pageContext.request.contextPath}/resources/osago_reso/anchor.html" width="304" height="78" role="presentation" name="a-390ixuqjrsp0" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div></div>
+			<%--<input type="checkbox" name="carUsedTrailer" id="carUsedTrailer" class="input__checkbox">--%>
+			<%--<label for="carUsedTrailer" class="float-right">Прицеп</label>--%>
+		<%--</span>--%>
+		<%--<div class="clear"></div>--%>
+		<%--<span style="float:left; width:240px; position:relative;">--%>
+			<%--<div for="power" class="field__error"></div>--%>
+		<%--</span>--%>
+        <%--<span style="float:right; width:95px; position:relative;padding-top:2px">--%>
+			<%--<div for="carUsedTrailer" class="field__error"></div>--%>
+		<%--</span>--%>
+	<%--</td>--%>
+<%--</tr>--%>
 
-										<div class="clear"></div>
-										<div style="margin-left: 10px;">
-											<div for="codeImage" class="field__error"></div></div>
-									</td>
-								</tr>
+<%--<tr>--%>
+	<%--<td class="col-1">Период использования</td>--%>
+	<%--<td class="col-2">--%>
+		<%--<span style="float:left; width:190px; position:relative;">--%>
+			<%--<select name="period" id="period" class="simple-selectize selectized" tabindex="-1" style="display: none;"><option value="7" selected="selected">10 месяцев и более</option></select><div class="selectize-control simple-selectize single"><div class="selectize-input items full has-options has-items"><div data-value="7" class="item">10 месяцев и более</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown single simple-selectize" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>--%>
+		<%--</span>--%>
+	<%--</td>--%>
+<%--</tr>--%>
 
-								<tr>
-										<td class="col-1"></td>
-										<td class="col-2">
-											<input class="input__button" value="Рассчитать" type="submit" onclick="return checkosago( this );">
-										</td>
-									</tr>
-								</tbody>
-						</table>
-					</div>
+<%--<tr class="even">--%>
+	<%--<td class="col-1">Лица, допущенные к управлению</td>--%>
+	<%--<td class="col-2">--%>
+		<%--<span style="float:left; width:209px; position:relative;">--%>
+			<%--<input name="driverList" id="driverList-1" style="width: 160px" value="0" type="radio" class="input__radio">--%>
+			<%--<label for="driverList-1">Без ограничений</label>--%>
+			<%--<span data-placement="bottom" class="tooltip-show" title="" data-original-title="Договор обязательного страхования автогражданской ответственности без ограничения количества лиц, допущенных к управлению."></span>--%>
+		<%--</span>--%>
 
-					<input type="hidden" name="action" value="calculate">
+		<%--<input name="driverList" id="driverList-0" checked="" style="width: 200px" value="1" type="radio" class="input__radio">--%>
+		<%--<label for="driverList-0">Ограничений список</label>--%>
+		<%--<a class="js-driver-add"></a>--%>
+		<%--<div class="clear"></div>--%>
+		<%--<div for="driverList" class="field__error"></div>--%>
+		<%--<input name="driverCount" id="driverCount" style="display:none" value="1" class="null">--%>
+	<%--</td>--%>
+<%--</tr>--%>
 
-				</form>
-			</div>
+<%--<tr class="kbm-general" style="display: none;">--%>
+	<%--<td>--%>
+		<%--<span>Класс бонуса-малуса</span>--%>
+		<%--<span data-placement="bottom" class="tooltip-show" title="" data-original-title="Определяется по собственнику автомобиля"></span>--%>
+	<%--</td>--%>
+	<%--<td>--%>
+		<%--<span class="kbm-selectize" style="float:left;width:60px;">--%>
+			<%--<select name="kbm" style="width: 50px; display: none;" class="simple-selectize selectized" tabindex="-1"><option value="3" selected="selected">3</option></select><div class="selectize-control simple-selectize single" style="width: 50px;"><div class="selectize-input items full has-options has-items"><div data-value="3" class="item">3</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown single simple-selectize" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>--%>
+		<%--</span>--%>
+		<%--<div class="clear"></div>--%>
+		<%--<div for="kbm" class="field__error"></div>--%>
+	<%--</td>--%>
+<%--</tr>--%>
 
-			</div>
 
-	</div>
+
+
+
+	<%--<tr class="js-driver-main osago-driver" id="driver0">--%>
+		<%--<td class="col-1" style="font-weight: normal;">--%>
+			<%--<span>--%>
+				<%--Возраст--%>
+			<%--</span>--%>
+			<%--<span title="" data-toggle="tooltip" data-placement="bottom" class="driver-tooltip-show tooltip-show" data-original-title="Количество полных лет"></span>--%>
+			<%--<div style="margin-right:25px;">--%>
+				<%--<input name="age0" id="age0" style="width: 45px; text-align: right;" value="22" type="text" class="auto-clear input__text" data-prev-value="">--%>
+			<%--</div>--%>
+			<%--<div class="clear"></div>--%>
+			<%--<div for="age0" class="field__error"></div>--%>
+		<%--</td>--%>
+		<%--<td>--%>
+			<%--<div>--%>
+				<%--<span>--%>
+					<%--Cтаж водителя--%>
+				<%--</span>--%>
+				<%--<span title="" data-toggle="tooltip" data-placement="bottom" class="driver-tooltip-show tooltip-show" data-original-title="Стаж водителя"></span>--%>
+				<%--<div style="margin-right:30px;">--%>
+					<%--<input name="stage0" id="stage0" style="width: 45px; text-align: right;" value="2" type="text" class="auto-clear input__text" data-prev-value="">--%>
+				<%--</div>--%>
+				<%--<div class="clear"></div>--%>
+				<%--<div for="stage0" class="field__error"></div>--%>
+			<%--</div>--%>
+
+			<%--<div>--%>
+				<%--<span>--%>
+					<%--Класс бонуса-малуса--%>
+				<%--</span>--%>
+				<%--<span data-placement="bottom" class="driver-tooltip-show tooltip-show" title="" data-original-title="Определяется исходя из количества аварий, виновником которых были Вы, в период действия годового договора ОСАГО."></span>--%>
+				<%--<span class="kbm-selectize">--%>
+					<%--<select name="kbm0" style="width: 50px; display: none;" class="simple-selectize selectized" tabindex="-1"><option value="3" selected="selected">3</option></select><div class="selectize-control simple-selectize single" style="width: 50px;"><div class="selectize-input items full has-options has-items"><div data-value="3" class="item">3</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown single simple-selectize" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>--%>
+				<%--</span>--%>
+				<%--<div class="clear"></div>--%>
+				<%--<div for="kbm0" class="field__error"></div>--%>
+			<%--</div>--%>
+
+			<%--<div style="float:right;"><a class="js-driver-del js-driver-del-0" style="display: none;"></a></div>--%>
+		<%--</td>--%>
+	<%--</tr>--%>
+
+
+
+<%--<tr class="js-driver-label" style="display: none;"></tr>--%>
+
+<%--<tr class="even" style="display:none;">--%>
+	<%--<td class="col-1">Страховая сумма ДГО</td>--%>
+	<%--<td class="col-2">--%>
+		<%--<span style="float:left; width:209px; position:relative;">--%>
+			<%--<select name="iSumLiability" id="iSumLiability" style="width: 190px; display: none;" class="simple-selectize selectized" tabindex="-1"><option value="300000" selected="selected">300 000</option></select><div class="selectize-control simple-selectize single" style="width: 190px;"><div class="selectize-input items full has-options has-items"><div data-value="300000" class="item">300 000</div><input type="text" autocomplete="off" tabindex="" style="width: 4px;"></div><div class="selectize-dropdown single simple-selectize" style="display: none;"><div class="selectize-dropdown-content"></div></div></div>--%>
+		<%--</span>--%>
+		<%--<span>--%>
+			<%--Год выпуска ТС--%>
+
+
+			<%--<input name="yearOfManufacture" id="yearOfManufacture" style="width: 60px; text-align: right;" value="2019" type="text" class="auto-clear input__text">--%>
+		<%--</span>--%>
+
+	<%--</td>--%>
+<%--</tr>--%>
+
+
+<%--<tr>--%>
+									<%--<td></td>--%>
+									<%--<td>--%>
+										<%--<div>--%>
+											<%--<script src="${pageContext.request.contextPath}/resources/osago_reso/api.js"></script><div class="g-recaptcha" data-sitekey="6LfGyzUUAAAAAMvIApXdKm-0INy2J_fk10xXuD2j"><div style="width: 304px; height: 78px;"><div><iframe src="${pageContext.request.contextPath}/resources/osago_reso/anchor.html" width="304" height="78" role="presentation" name="a-390ixuqjrsp0" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox"></iframe></div><textarea id="g-recaptcha-response" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div></div></div>--%>
+
+										<%--<div class="clear"></div>--%>
+										<%--<div style="margin-left: 10px;">--%>
+											<%--<div for="codeImage" class="field__error"></div></div>--%>
+									<%--</td>--%>
+								<%--</tr>--%>
+
+								<%--<tr>--%>
+										<%--<td class="col-1"></td>--%>
+										<%--<td class="col-2">--%>
+											<%--<input class="input__button" value="Рассчитать" type="submit" onclick="return checkosago( this );">--%>
+										<%--</td>--%>
+									<%--</tr>--%>
+								<%--</tbody>--%>
+						<%--</table>--%>
+					<%--</div>--%>
+
+					<%--<input type="hidden" name="action" value="calculate">--%>
+
+				<%--</form>--%>
+			<%--</div>--%>
+
+			<%--</div>--%>
+
+	<%--</div>--%>
 
 </div>
 
@@ -1564,7 +1563,7 @@
 
 			</div>
 		</div>
-		-->
+
 
 									<div class="sidebar clearfix">
 

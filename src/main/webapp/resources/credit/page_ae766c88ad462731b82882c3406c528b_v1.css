@@ -1,0 +1,508 @@
+
+
+/* Start:/local/components/dalee/calc.credit/templates/.default/style.css?15601600239738*/
+/* credit-calculator */
+
+.credit-calculator {
+	background: #FFFFFF;
+	position: relative;
+	z-index: 1;
+}
+.credit-calculator__clear {
+	clear: both;
+}
+.credit-calculator__input--large {
+	float: left;
+	width: calc(100% - 120px);
+}
+.credit-calculator__input--large-w140 {
+	width: calc(100% - 160px);
+}
+.credit-calculator__input--small {
+	float: right;
+	width: 100px;
+}
+.credit-calculator__input--small-w140 {
+	width: 140px;
+}
+.credit-calculator__description {
+	font-size: 16px;
+	font-weight: 400;
+	margin: 0;
+}
+.credit-calculator__params {
+	padding: 20px;
+}
+.credit-calculator__payments {
+	border-top: 1px solid #D0D1D0;
+	min-height: 60px;
+}
+.credit-calculator__payments {
+	border-top: 1px solid #D0D1D0;
+	min-height: 60px;
+}
+.credit-calculator__actions {
+	text-align: center;
+}
+
+html:not(.blind) .credit-calculator {
+	box-shadow: 0 1px 11px rgba(0, 0, 0, 0.15);
+}
+html.blind .credit-calculator {
+	box-shadow: 0 0 0 2px #000000;
+}
+
+@media (max-width: 767px) {
+	.credit-calculator {
+		margin: 0 15px -96px 15px;
+	}
+	.credit-calculator__description {
+		padding: 20px;
+	}
+	.credit-calculator__payments {
+		padding: 10px;
+	}
+	.credit-calculator__field {
+		padding: 10px 0;
+	}
+	.credit-calculator__actions {
+		padding: 10px;
+	}
+	.credit-calculator__send.fc-button {
+		font-size: 15px;
+		height: 50px;
+		margin: 13px auto;
+		width: 200px;
+	}
+}
+@media (min-width: 768px) {
+	.credit-calculator {
+		margin: 0 auto -120px auto;
+		width: 720px;
+	}
+	.credit-calculator__description {
+		padding: 20px 40px;
+	}
+	.credit-calculator__payments {
+		padding: 20px;
+	}
+	.credit-calculator__field {
+		padding: 15px 20px;
+	}
+	.credit-calculator__actions {
+		padding: 20px;
+	}
+	.credit-calculator__send.fc-button {
+		font-size: 19px;
+		height: 58px;
+		margin: 11px auto;
+		width: 256px;
+	}
+}
+@media (min-width: 1024px) {
+	.credit-calculator {
+		margin: 0 auto -120px auto;
+		width: 960px;
+	}
+	.credit-calculator__params::before,
+	.credit-calculator__params::after {
+		content: '';
+		display: table;
+	}
+	.credit-calculator__params::after {
+		clear: both;
+	}
+	.credit-calculator__column {
+		float: left;
+		width: 33.33%;
+	}
+}
+@media (min-width: 1120px) {
+	.credit-calculator {
+		margin: 0 auto -120px auto;
+		width: 1080px;
+	}
+}
+
+/* credit-calculator-payments */
+
+.credit-calculator-payments {
+	padding: 10px 0;
+}
+.credit-calculator-payments__title {
+	color: #706F6D;
+	font-weight: 700;
+	margin: 0;
+}
+.credit-calculator-payments__list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.credit-calculator-payments__item {}
+.credit-calculator-payments__field {
+	vertical-align: bottom;
+}
+.credit-calculator-payments__field_actions {
+	vertical-align: bottom;
+}
+.credit-calculator-payments__del {
+	height: 32px;
+	line-height: 32px;
+	margin-top: 32px;
+}
+
+.credit-calculator-payments .datepicker {
+	min-width: 240px;
+}
+
+@media (max-width: 767px) {
+	.credit-calculator-payments {
+		padding: 10px 20px;
+	}
+	.credit-calculator-payments__title {
+		font-size: 14px;
+		margin-bottom: 10px;
+	}
+	.credit-calculator-payments__field {
+		padding: 10px 0;
+	}
+	.credit-calculator-payments__add.fc-button {
+		margin-top: 10px;
+	}
+}
+@media (min-width: 768px) {
+	.credit-calculator-payments {
+		padding: 20px;
+	}
+	.credit-calculator-payments__title {
+		font-size: 18px;
+		margin-bottom: 20px;
+	}
+	.credit-calculator-payments__item {
+		display: table;
+	}
+	.credit-calculator-payments__field {
+		display: table-cell;
+		padding: 20px 0;
+	}
+	.credit-calculator-payments__field + .credit-calculator-payments__field {
+		padding-left: 20px;
+	}
+	.credit-calculator-payments__field_date {
+		width: 180px;
+	}
+	.credit-calculator-payments__field_amount {
+		width: 280px;
+	}
+	.credit-calculator-payments__field_periodicity {
+		width: 240px;
+	}
+	.credit-calculator-payments__add.fc-button {
+		margin-top: 20px;
+	}
+
+	.credit-calculator-payments__item + .credit-calculator-payments__item .fc-label {
+		display: none;
+	}
+}
+
+/* credit-calculator-params */
+
+.credit-calculator-params {
+	position: relative;
+}
+.credit-calculator-params__title {
+	color: #182547;
+	font-weight: 500;
+	margin: 0;
+}
+.credit-calculator-params__list {
+	margin: 10px 0;
+	padding: 0;
+}
+.credit-calculator-params__item {
+	color: #2F2F2F;
+	display: table;
+	list-style: none;
+	min-height: 42px;
+}
+.credit-calculator-params__label {
+	display: table-cell;
+	font-weight: 500;
+	padding-right: 10px;
+}
+.credit-calculator-params__value {
+	display: table-cell;
+	font-weight: 700;
+	font-family: 'PT Sans', sans-serif;
+}
+
+@media (max-width: 767px) {
+	.credit-calculator-params {
+		margin: 0 15px;
+	}
+	.credit-calculator-params__title {
+		font-size: 27px;
+		line-height: 40px;
+		padding: 0 10px;
+	}
+	.credit-calculator-params__item {
+		font-size: 13px;
+		line-height: 18px;
+		padding: 4px 10px;
+	}
+	.credit-calculator-params__label {
+		width: 150px;
+	}
+}
+@media (min-width: 768px) {
+	.credit-calculator-params {
+		margin: 0 auto;
+		width: 700px;
+	}
+	.credit-calculator-params__title {
+		font-size: 34px;
+		line-height: 60px;
+		padding: 0 30px;
+	}
+	.credit-calculator-params__item {
+		font-size: 18px;
+		line-height: 22px;
+		padding: 7px 30px;
+	}
+	.credit-calculator-params__label {
+		width: 320px;
+	}
+}
+@media (min-width: 1024px) {
+	.credit-calculator-params {
+		width: 860px;
+	}
+	.credit-calculator-params__title {
+		font-size: 34px;
+		padding: 0 20px;
+	}
+	.credit-calculator-params__item {
+		line-height: 22px;
+		padding: 7px 20px;
+	}
+	.credit-calculator-params__label {
+		width: 240px;
+	}
+}
+
+/* credit-calculator-result */
+
+.credit-calculator-result {
+	position: relative;
+}
+.credit-calculator-result__title {
+	color: #182547;
+	font-weight: 500;
+	margin: 0;
+}
+.credit-calculator-result__print {
+	border-bottom: 1px dotted #3559AB;
+	color: #3559AB;
+	cursor: pointer;
+	font-size: 15px;
+	z-index: 1;
+}
+.credit-calculator-result__list {
+	margin: 10px 0;
+	padding: 0;
+	position: relative;
+	z-index: 1;
+}
+.credit-calculator-result__item {
+	color: #2F2F2F;
+	display: table;
+	list-style: none;
+}
+.credit-calculator-result__label {
+	display: table-cell;
+	font-weight: 500;
+	padding-right: 10px;
+}
+.credit-calculator-result__value {
+	display: table-cell;
+	font-weight: 700;
+	font-family: 'PT Sans', sans-serif;
+}
+.credit-calculator-result__table {
+	overflow-x: auto;
+	overflow-y: hidden;
+	width: 100%;
+}
+.credit-calculator-result__table-wrap {
+	position: relative;
+}
+.credit-calculator-result__table-wrap--after:after {
+	content: '';
+	position: absolute;
+	top: 300px;
+	bottom: 0;
+	right: 0;
+	width: 40px;
+	background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), #ffffff);
+}
+.credit-calculator-result__note {
+	display: none;
+}
+.credit-calculator-result__note-txt {
+	font-size: 12px;
+	line-height: 1.1;
+	text-transform: none;
+}
+
+@media (max-width: 767px) {
+	.credit-calculator-result {
+		margin: 0 15px;
+	}
+	.credit-calculator-result__title {
+		font-size: 27px;
+		line-height: 40px;
+		padding: 0 10px;
+	}
+	.credit-calculator-result__print {
+		margin-left: 10px;
+		position: static;
+	}
+	.credit-calculator-result__item {
+		font-size: 13px;
+		line-height: 18px;
+		padding: 4px 10px;
+		position: relative;
+	}
+	.credit-calculator-result__label {
+		width: 160px;
+	}
+}
+@media (min-width: 768px) {
+	.credit-calculator-result {
+		margin: 0 auto;
+		width: 700px;
+	}
+	.credit-calculator-result__title {
+		font-size: 34px;
+		line-height: 60px;
+		padding: 0 30px;
+	}
+	.credit-calculator-result__print {
+		position: absolute;
+		right: 0;
+		top: 20px;
+	}
+	.credit-calculator-result__item {
+		font-size: 18px;
+		line-height: 22px;
+		padding: 7px 30px;
+	}
+	.credit-calculator-result__label {
+		width: 320px;
+	}
+}
+@media (min-width: 1024px) {
+	.credit-calculator-result {
+		width: 860px;
+	}
+	.credit-calculator-result__title {
+		font-size: 34px;
+		line-height: 60px;
+		padding: 0 20px;
+	}
+	.credit-calculator-result__item {
+		padding: 7px 20px;
+	}
+	.credit-calculator-result__label {
+		width: 240px;
+	}
+}
+@media (max-width: 1024px) {
+	.credit-calculator-result__print {
+		display: none;
+	}
+}
+@media print {
+	.credit-calculator-result__print {
+		display: none;
+	}
+	.credit-calculator-result__note {
+		display: block;
+	}
+}
+
+/* credit-calculator-table */
+
+.credit-calculator-table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin: 30px 0;
+	white-space: nowrap;
+	width: 100%;
+}
+.credit-calculator-table__row + .credit-calculator-table__row .credit-calculator-table__cell {
+	border-top: 1px solid #E5E5E5;
+}
+.credit-calculator-table__cell {
+	padding: 10px;
+	text-align: center;
+	vertical-align: top;
+}
+.credit-calculator-table__cell_red {
+	color: #FF0000;
+}
+.credit-calculator-table__head .credit-calculator-table__cell {
+	font-weight: 700;
+	text-transform: uppercase;
+	vertical-align: top;
+}
+.credit-calculator-table__body .credit-calculator-table__cell {
+	font-weight: 500;
+}
+.credit-calculator-table__foot .credit-calculator-table__cell {
+	border-top: 2px solid #E5E5E5;
+	font-weight: 700;
+}
+
+html:not(.blind) .credit-calculator-table__head .credit-calculator-table__cell {
+	background: #F8F6F2;
+	color: rgba(24, 37, 71, 0.6);
+}
+html.blind .credit-calculator-table__head .credit-calculator-table__cell {
+	background: #000000;
+	color: #FFFFFF;
+}
+
+@media (max-width: 767px) {
+	.credit-calculator-table__head .credit-calculator-table__cell {
+		font-size: 12px;
+		line-height: 16px;
+	}
+	.credit-calculator-table__body .credit-calculator-table__cell {
+		font-size: 13px;
+		line-height: 16px;
+	}
+	.credit-calculator-table__foot .credit-calculator-table__cell {
+		font-size: 13px;
+		line-height: 30px;
+	}
+}
+@media (min-width: 768px) {
+	.credit-calculator-table__head .credit-calculator-table__cell {
+		font-size: 15px;
+		line-height: 20px;
+	}
+	.credit-calculator-table__body .credit-calculator-table__cell {
+		font-size: 18px;
+		line-height: 30px;
+	}
+	.credit-calculator-table__foot .credit-calculator-table__cell {
+		font-size: 18px;
+		line-height: 50px;
+	}
+}
+
+/* End */
+/* /local/components/dalee/calc.credit/templates/.default/style.css?15601600239738 */

@@ -5,7 +5,7 @@
     color: white;
     display: inline-block;
     position: relative;
-    padding: 100px 15px;
+    padding: 80px 30px;
     border: 1px solid;
     border-image: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
     border-image-slice: 1;
@@ -33,4 +33,16 @@
     top: auto;
     height: 100%;
   }
-  body {background: #1D1B26;}
+  body {background: #1D1B26;
+
+  }
+  .bottom {
+    margin-top: 30%;
+    }
+  .margin_type
+  {
+    margin-left: 6%;
+  }
+  .margin_example{
+  margin-left: 29%;
+  }

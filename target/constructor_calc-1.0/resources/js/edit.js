@@ -67,9 +67,11 @@ function loadCalc(value) {
     $(id_div_Constructor).empty();
 
     selectTypeCalc = value;
+
     if ($(calcs[selectTypeCalc]).length > 0)
         displayElemsCalc();
     else {
+
         var search = { typeCalc: selectTypeCalc, query: "GET" };
 
         $.ajax({
@@ -95,21 +97,34 @@ function displayElemsCalc() {
 
     $(id_div_ListElemCalcs).empty();
     $(id_div_Result).empty();
+    listElemsConstructor.splice(0, listElemsConstructor.length);
 
     var start = 0;
     var ul = $('<ul id="list_cbs" class="list1a"></ul>');
-    listElemsConstructor.splice(0, listElemsConstructor.length);
-    if (selectTypeCalc == "Осаго") start = 1;
+
+    console.log(selectTypeCalc);
+    if (selectTypeCalc == "Осаго")
+        start = 1;
+
+    console.log(selectTypeCalc);
+    console.log(calcs);
+    console.log(calcs[selectTypeCalc]);
 
     // добавление элементов в блок ui
     for (var i = start; i < $(calcs[selectTypeCalc].elements).length; i++) {
+        //nameElemCalcs[$(calcs[tCalc])[i].value] = data[i].name;
+        console.log($(calcs[selectTypeCalc].elements)[i]);
         var checkbox = $('<li><input  type="checkbox"  name="elemCalc" value="'
-            + $(calcs[selectTypeCalc].elements)[i].idName +
+            + $(calcs[selectTypeCalc].elements)[i].idName + //id="elemCalc' + i + '"
             '" onclick="checkboxChange(this);"/><span class="displayElemsselectTypeCalc">' + $(calcs[selectTypeCalc].elements)[i].name + '</span></li>');
         ul.append(checkbox);
     }
+    console.log(ul);
+    console.log(id_div_ListElemCalcs);
+    console.log($(id_div_ListElemCalcs));
     ul.appendTo(id_div_ListElemCalcs);
     $(id_div_ListElemCalcs).append(ul);
+    console.log($(id_div_ListElemCalcs));
 }
 // Выбор элемента калькулятора
 function checkboxChange(checkbox) {
@@ -154,9 +169,9 @@ function nameCalc() {
     var name = $(calcs[selectTypeCalc])[0].name;
 
     var mainDiv = $('<div>', {class: ""});
-    var divName = $('<div>', {class: "nameCalc", text: "Название калькулятора: "});
-    var inputName = $('<input class="inputElem stylelable" id="' + name + '" type="text" value="' + name + '">');
-    var button = $('<br><br><button class="col-sm-offset-4" id="' + name + '" onclick="saveName(id);">Сохранить</button>');
+    var divName = $('<div>', {class: "nameCalc names1", text: "Название калькулятора: "});
+    var inputName = $('<input class="inputElem stylelable1" id="' + name + '" type="text" value="' + name + '">');
+    var button = $('<button class="" id="' + name + '" onclick="saveName(id);">Сохранить</button>');
     // + '" onchange="onChangeElemCountry(id, value)">'))
     mainDiv.append(divName).append(inputName).append(button).appendTo(id_div_Constructor);
 }
@@ -215,9 +230,9 @@ var id_cb_addValue = "addCheckboxValue_";
 function displayListCheckbox(elem) {
 
     var divMain = $('<div class="test" id="' + id_cbs + '">');
-    var div = $('<div class="displayListCheckbox">' + elem.name + " (" + elem.idName + ")" + '</div>');
-    var inputName = $('<input class="stylelable" id="' + id_cb_addName + elem.idName + '" type="text" placeholder="название">');
-    var inputValue = $('<input class="stylelable" id="' + id_cb_addValue + elem.idName + '" type="text" placeholder="(-/+)0.2 процентов">');
+    var div = $('<div class="displayListCheckbox names1">' + elem.name + " (" + elem.idName + ")" + '</div>');
+    var inputName = $('<input class="stylelable1" id="' + id_cb_addName + elem.idName + '" type="text" placeholder="название">');
+    var inputValue = $('<input class="stylelable1" id="' + id_cb_addValue + elem.idName + '" type="text" placeholder="(-/+)0.2 процентов">');
     var button = $('<button id="' + elem.idName + '" onclick="addElemListCheckbox(id);">Добавить</button>');
 
     divMain.append(div).append(inputName).append(inputValue).append(button);
@@ -297,8 +312,8 @@ function displayInput(elem) {
     var divMain = $('<div>', {class: "test"});
     // $('<div class="border" id="i-have-a-tooltip" data="' + elem.info.info + '">' + elem.name + " (" + elem.idName + ")" + '</div>')
 
-    var div = $('<div class="displayInput">' + elem.name + " (" + elem.idName + ")" + '</div>');
-    var input = $('<input class="inputElem stylelable" id="' + elem.idName + '" type="text" ' +
+    var div = $('<div class="displayInput names1">' + elem.name + " (" + elem.idName + ")" + '</div>');
+    var input = $('<input class="inputElem stylelable1" id="' + elem.idName + '" type="text" ' +
         'value="' + elem.info.value + //'">'))
         '" onchange="saveElemInput(id, value)">');
     divMain.append(div)
@@ -336,7 +351,7 @@ var id_select_addValue = "addSelectValue_";
 function displaySelect(elem) {
 
     // формирование выпадающего списка
-    var select = $('<select class="selectElem stylelable" id="' + elem.idName + '" onchange="onChangeElemSelect(id, value);"></select>');
+    var select = $('<select class="selectElem stylelable1" id="' + elem.idName + '" onchange="onChangeElemSelect(id, value);"></select>');
     // заполнение выпадающего списка
     for (var i = 0; i < $(elem.info.list).length; i++) {
         var option = $('<option>', { value: $(elem.info.list)[i].value, text: $(elem.info.list)[i].name });
@@ -345,7 +360,7 @@ function displaySelect(elem) {
 
     // блок с выпадающим списком
     var div = $('<div class="">');
-    var divSelect = $('<div>', {class: "displaySelect", text: elem.name + " (" + elem.idName + ")"});
+    var divSelect = $('<div>', {class: "displaySelect names1", text: elem.name + " (" + elem.idName + ")"});
     div
     //.append($('<div class="border" id="i-have-a-tooltip" data="' + elem.info.info + '">'
     //+ elem.name + " (" + elem.idName + ")" + '<span>i</span></div>'))
@@ -354,14 +369,14 @@ function displaySelect(elem) {
         .append(select);
 
 
-    var inputValue = $('<br><br><input class="inputElem stylelable" id="' + id_select_val + elem.idName + '" type="text">');
+    var inputValue = $('<br><br><input class="inputElem stylelable1" id="' + id_select_val + elem.idName + '" type="text">');
     if ($(elem.info.list).length > 0)
         inputValue.val($(elem.info. list)[0].value);
 
     var buttonEdit = $('<br><button id="' + elem.idName + '" onclick="editElemSelect(id);">Изменить</button>');
     var buttonDel = $('<button class="buttonDelete" id="' + elem.idName + '" onclick="deletElemSelect(id);">Удалить</button>');
-    var inputAddName = $('<br><input class="inputElem stylelable"  id="' + id_select_addName + elem.idName + '" type="text" placeholder="название">');
-    var inputAddValue = $('<br><br><input class="inputElem stylelable" id="' + id_select_addValue + elem.idName + '" type="text" placeholder="1.2">');
+    var inputAddName = $('<br><input class="inputElem stylelable1"  id="' + id_select_addName + elem.idName + '" type="text" placeholder="название">');
+    var inputAddValue = $('<br><br><input class="inputElem stylelable1" id="' + id_select_addValue + elem.idName + '" type="text" placeholder="1.2">');
     var buttonAddElem = $('<br><button id="' + elem.idName + '" onclick="addElemSelect(id);">Добавить</button>');
 
     div.append(inputValue).append(buttonEdit).append(buttonDel).append(inputAddName)
@@ -518,12 +533,12 @@ function displaySlider(elem) {
     console.log(slider);
 
     var divMain = $('<div>', {class: ""});
-    var divName = $('<div  class="displaySlider">' + elem.name + " (" + elem.idName + ")" + '</div>');
-    var input = $('<input  class="input-group stylelable" id="' + elem.idName + '" type="text" ' +
+    var divName = $('<div  class="displaySlider names1">' + elem.name + " (" + elem.idName + ")" + '</div>');
+    var input = $('<input  class=" stylelable1" id="' + elem.idName + '" type="text" ' +
         'value="' + elem.info.value + '" onchange="onChangeElemSlider(id, value)">');
-    var inputMin = $('<input  class="inputElem stylelable" id="' + slider_input_min + elem.idName +
+    var inputMin = $('<input  class="inputElem stylelable1" id="' + slider_input_min + elem.idName +
         '" type="text" value="' + elem.info.minValue + '">');
-    var inputMax = $('<input class="inputElem stylelable" id="' + slider_input_max + elem.idName +
+    var inputMax = $('<input class="inputElem stylelable1" id="' + slider_input_max + elem.idName +
         '" type="text" value="' + elem.info.maxValue + '">');
     var buttonSaveMin = $('<button id="' + elem.idName + '" ' + ' onclick="saveSliderMinValues(id);">Сохранить</button>');
     var buttonSaveMax = $('<button id="' + elem.idName + '" ' + ' onclick="saveSliderMaxValues(id);">Сохранить</button>');

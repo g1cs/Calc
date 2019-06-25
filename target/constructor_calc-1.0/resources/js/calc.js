@@ -24,16 +24,14 @@ var url_getCalc = "getCalcFromThirdParty";
 jQuery(document).ready(function($) {
 
     var div = $("div.calc");
-    console.log(div);
     var id = $(div).attr("id");
-    console.log(id);
 
     div.empty();
     div.append($('<div class="col-sm-8 col-sm-offset-3">' +
         // '<div class="" id="typeCalcs"></div>' +
         // '<div class="" id="elementsCalcs"></div>' +
         '<div class="" id="constructor"></div>' +
-        '<div class="stylelable" id="div_result"></div>' +
+        '<div class="resultat" id="div_result"></div>' +
         '</div>'));
 
     var search = { idCalc: id };         // запрос для сервера
@@ -50,8 +48,6 @@ jQuery(document).ready(function($) {
             selectIndexCalc = 0;
             userCalcs[selectIndexCalc] = JSON.parse(JSON.stringify(data, null, 4));
             selectTypeCalc = userCalcs[selectIndexCalc].type;
-            console.log(selectTypeCalc);
-            console.log(userCalcs);
             displayConstructorCalc(); // получаю list_displayUserCalcs
         },
         error: function (e) { console.log("ERROR: ", e); },
@@ -107,15 +103,16 @@ function displayConstructorCalc() {
 
     $(id_div_Constructor).empty();
     $(id_div_Result).empty();
+    $(id_div_Result).css("display", "none");
 
     nameCalcFromCalc();
 
     switch($(userCalcs)[selectIndexCalc].type) {
         case "Осаго":
-            elementsFromCalc();
-            buttonCompute();
-            result();
-            break;
+            // elementsFromCalc();
+            // buttonCompute();
+            // result();
+            // break;
         case "Кредит":
         case "Ипотека":
             elementsFromCalc();
@@ -133,20 +130,15 @@ function nameCalcFromCalc() {
 
     var name = $(userCalcs[selectIndexCalc])[0].name;
     var div = $('<div>', {class: ""});
-    div.append($('<div>', {class: "nameCalc", text: "Название калькулятора: "}))
+    div.append($('<div>', {class: "nameCalc names", text: "Название калькулятора: "}))
         .append($('<input class="inputElem stylelable" id="' + name + '" type="text" value="' + name + '">'))
-        // + '" onchange="onChangeElemCountry(id, value)">'))
-        //.append(button)
         .appendTo(id_div_Constructor);
 }
 // Элементы
 function elementsFromCalc() {
     var elements = $(userCalcs)[selectIndexCalc].elements;
-    console.log(userCalcs);
-    console.log(elements);
     for (var j = 0; j < elements.length; j++) {
         var elem = elements[j];
-        console.log(elem);
         switch (elem.type) {
             case "input":                 displayInputFromCalc(elem);                 break;
             case "select":                displaySelectFromCalc(elem);                break;
@@ -159,9 +151,9 @@ function elementsFromCalc() {
 }
 
 function buttonCompute() {
-    var mainDiv = $('<br><br><br><br><div>', {id: "res", class: "test"});
+    var mainDiv = $('<div>', {id: "res", class: "test"});
     var divCompute = $('<div id="computeRes" class="buttonCompute">');
-    var buttonCompute = $('<button type="submit" id="btnCompute" onclick="computeCalcFromCalc();">Вычислить</button>');
+    var buttonCompute = $('<button class="result" id="btnCompute" onclick="computeCalcFromCalc();">Вычислить</button>');
     divCompute.append(buttonCompute);
     mainDiv.append(divCompute).appendTo(id_div_Constructor);
 }
@@ -176,8 +168,8 @@ function displayListCheckboxFromCalc(elem) {
 
     for (var i = 0; i < $(elem.info.list).length; i++) {
         div.append(
-            $('<div class="_cb_" name="'+ $(elem.info.list)[i].name
-                +'"><input class="_cb_ " type="checkbox" name="'+ $(elem.info.list)[i].name +
+            $('<div class="displayInput2" name="'+ $(elem.info.list)[i].name
+                +'"><input class="" type="checkbox" name="'+ $(elem.info.list)[i].name +
                 '" value="' + $(elem.info.list)[i].value +
                 '" onclick="listCheckboxChange(this);"/>' + $(elem.info.list)[i].name + '</div>'))
             .appendTo(div);
@@ -188,7 +180,7 @@ function displayListCheckboxFromCalc(elem) {
 // Отображение элемента конструктора (input)
 function displayInputFromCalc(elem) {
     var div = $('<div>', {class: ""});
-    div.append($('<div class="displayInput">' + elem.name + " (" + elem.idName + ")" + '</div>'))
+    div.append($('<div class="displayInput names">' + elem.name + " (" + elem.idName + ")" + '</div>'))
         .append($('<input class="inputElem stylelable" id="' + elem.idName
             + '" type="text" value="' + elem.info.value + '" onchange="onChangeElemSliderFromCalc(id, value)">'))
         .appendTo(id_div_Constructor);
@@ -206,7 +198,7 @@ function displaySelectFromCalc(elem) {
 
     // блок с выпадающим списком
     var div = $('<div>', {class: ""});
-    div.append($('<div>', {class: "displaySelect", text: elem.name + " (" + elem.idName + ")"}))
+    div.append($('<div>', {class: "displaySelect names", text: elem.name + " (" + elem.idName + ")"}))
         .append(select)
         .appendTo(id_div_Constructor);
 }
@@ -223,7 +215,7 @@ function displayRadioFromCalc(elem) {
     var div = $('<div>', {class: ""});
     for (var i = 0; i < elem.info.list.length; i++)
         div.append(
-            $('<div class="displayInput"><input type="radio" name="' + elem.idName
+            $('<div class="displayInput1"><input type="radio" name="' + elem.idName
                 + '" id="' + elem.idName + '" value="' + elem.info.list[i].value +
                 '" onclick="onChangeElemRadioFromCalc(id, value);"/>' + elem.info.list[i].name + '</div>'));
 
@@ -242,11 +234,10 @@ function displaySliderFromCalc(elem) {
 
     var idSlider = "slider" + elem.idName;
     var slider = $('<div id="'+idSlider+'">Slider</div>');
-    console.log(slider);
 
     var div = $('<div>', {class: ""});
-    div.append($('<div class="displaySlider">' + elem.name + " (" + elem.idName + ")" + '</div>'))
-        .append($('<input class="input-group stylelable" id="' + elem.idName + '" type="text" ' +
+    div.append($('<div class="displaySlider names">' + elem.name + " (" + elem.idName + ")" + '</div>'))
+        .append($('<input class="stylelable" id="' + elem.idName + '" type="text" ' +
             'value="' + elem.info.value + '" onchange="onChangeElemSliderFromCalc(id, value)">'))
         .append(slider)
         .appendTo(id_div_Constructor);
@@ -348,7 +339,6 @@ function computeCalcFromCalc() {
 
     switch (type) {
         case "Осаго":
-            //list.push( {name: elems[0].idName, value: elems[0].info.value} );
             for (var j = 0; j < elems.length; j++)
                 list.push({name: elems[j].idName, value: elems[j].info.value});
             break;
@@ -365,9 +355,6 @@ function computeCalcFromCalc() {
         list: list ,
         name: $(userCalcs[selectIndexCalc])[0].name};
 
-    console.log(search);
-    console.log(JSON.stringify(search));
-
     $.ajax({
         type: "POST",
         contentType: "application/json;charset=utf-8",
@@ -380,6 +367,7 @@ function computeCalcFromCalc() {
             inputData = list;
             outputData = JSON.parse(JSON.stringify(data, null, 4));
             $(id_div_Result).empty();
+            $(id_div_Result).css("display", "block");
             result();
         },
         error: function (data) {
@@ -404,7 +392,6 @@ function result() {
 
     var divMain = $('<div>');
     var out;
-    console.log(outputData);
     switch (selectTypeCalc) {
         case "Осаго":
             out = $('<div>', {class: "test", text: outputData});
@@ -443,5 +430,4 @@ function result() {
     }
     divMain.append(out);
     $(id_div_Result).append(divMain);
-    console.log($(id_div_Result));
 }

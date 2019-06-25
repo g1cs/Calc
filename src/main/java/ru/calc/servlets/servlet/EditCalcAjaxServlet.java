@@ -117,7 +117,7 @@ public class EditCalcAjaxServlet extends HttpServlet {
     if (json != null)
       response.getWriter().write(json);
   }
-
+  
   private String getJsonResult(HttpServletResponse response, JsonObject data, Integer userId, Boolean isAdmin)
       throws ServletException, IOException {
 
@@ -164,7 +164,7 @@ public class EditCalcAjaxServlet extends HttpServlet {
           response.sendError(400, "Сервер не понял запрос. Проверьте правильность переменной 'idCalc'!!!");
           return null;
         }
-      default: break;
+        default: break;
     }
 
 
@@ -203,7 +203,7 @@ public class EditCalcAjaxServlet extends HttpServlet {
         for (Calc calc : temp)
           if (calc.type.equals(typeCalc))
             return gson.toJson(calc);
-        // пользовательские калькуляторы
+      // пользовательские калькуляторы
       case "ALL":
       case "":
         if (!isAdmin)

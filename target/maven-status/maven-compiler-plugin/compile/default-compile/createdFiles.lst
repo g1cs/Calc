@@ -40,3 +40,4 @@ ru\calc\model\Elements\ElementInfoListCheckbox.class
 ru\calc\model\Enum.class
 ru\calc\db\DBSourse.class
 ru\calc\model\Elements\Element.class
+ru\calc\servlets\servlet\PageCreditServlet.class

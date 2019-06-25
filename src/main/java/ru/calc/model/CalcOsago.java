@@ -227,10 +227,11 @@ public class CalcOsago extends Calc {
     result = new StringBuilder(defaultRes.info + defaultRes.formula + '\n');
     for (int i = 0; i < defaultRes.res.size(); i++){
       ListValue elem = defaultRes.res.get(i);
-      result.append(elem.name).append(" = ").append(elem.value).append("; ");
+      //result.append(elem.name).append(" = ").append(elem.value).append("; ");
       r *= elem.value;
     }
-    result.append(" = ").append(r);
+    //result.append(" = ").append(r);
+    result.append(r);
     return result.toString();
   }
 

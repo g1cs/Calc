@@ -1,0 +1,480 @@
+
+; /* Start:"a:4:{s:4:"full";s:80:"/local/components/dalee/calc.credit/templates/.default/script.js?156016002315143";s:6:"source";s:64:"/local/components/dalee/calc.credit/templates/.default/script.js";s:3:"min";s:0:"";s:3:"map";s:0:"";}"*/
+var CreditCalculator = new Vue({
+	el: '#credit-calculator',
+	computed: {
+		fieldCommissionOnceCount: {
+			get: function () {
+				return this.numberToString(this.fields.commissionOnceCount, 2);
+			},
+			set: function (value) {
+				this.fields.commissionOnceCount = Math.abs(this.stringToNumber(value, 2)) || 0;
+			}
+		},
+		fieldCommissionPeriodicCount: {
+			get: function () {
+				return this.numberToString(this.fields.commissionPeriodicCount, 2);
+			},
+			set: function (value) {
+				this.fields.commissionPeriodicCount = Math.abs(this.stringToNumber(value, 2)) || 0;
+			}
+		},
+
+		periodicity: function () {
+			return this.fields.periodicity;
+		},
+		periodsRate: function () {
+			switch (this.fields.periodicity) {
+				case 'months':
+					return this.fields.rate / 12 / 100;
+				case 'quarters':
+					return this.fields.rate / 4 / 100;
+				case 'years':
+					return this.fields.rate / 100;
+				case 'one-time':
+					switch (this.fields.loanTermUnits) {
+						case 'months':
+							return this.fields.rate / 12 / 100;
+						case 'quarters':
+							return this.fields.rate / 4 / 100;
+						case 'years':
+							return this.fields.rate / 100;
+					}
+			}
+		},
+		payments: function () {
+			return this.fields.repayments
+				.map(function (repayment) {
+					return { date: moment(repayment.date, 'DD.MM.YYYY'), amount: -repayment.amount };
+				})
+				.sort(function (a, b) {
+					return a.date - b.date
+				});
+		},
+
+		// Единовременная комиссия
+		commissionOnce: function () {
+			var units = this.fields.commissionOnceUnits;
+			var count = this.fields.commissionOnceCount;
+
+			return units === 'C' ? count : count * (this.amount / 100);
+		},
+		// Ежемесячная / Ежеквартальная / Ежегодная комиссия
+		commissionPeriodic: function () {
+			// При периодичности погашения "Единовременно" - нет комиссий
+			if (this.fields.periodicity === 'one-time') return 0;
+
+			var units = this.fields.commissionPeriodicUnits;
+			var count = this.fields.commissionPeriodicCount;
+
+			return units === 'C' ? count : count * (this.amount / 100);
+		},
+
+		// Сумма кредита/займа
+		amount: function () {
+			if (this.currentTab === 'AMOUNT') {
+				return this.fields.amount;
+			}
+
+			var n = this.periods.length;
+			var P = this.periodsRate;
+			var X = this.fields.payment;
+
+			return X / (P + (P / (Math.pow(1 + P, n) - 1)));
+		},
+
+		// Базовая ставка периода
+		pskBasePeriod: function () {
+			switch (this.fields.periodicity) {
+				case 'months':
+					return 30;
+				case 'quarters':
+					return 91;
+				case 'years':
+					return 365;
+				case 'one-time':
+					return this.getDays(this.dateOpening, this.dateClosing);
+			}
+		},
+		pskBasePeriodCount: function () {
+			return parseFloat((365 / this.pskBasePeriod).toFixed(3));
+		},
+
+		commissionOnceMax: function () {
+			return this.fields.commissionOnceUnits === 'C' ? this.amount * 0.99 : 99;
+		},
+		commissionPeriodicMax: function () {
+			return this.fields.commissionPeriodicUnits === 'C' ? this.amount * 0.99 : 99;
+		}
+	},
+	data: {
+		currentTab: 'AMOUNT',
+		fields: {
+			commissionOnceCount: 0,
+			commissionOnceUnits: 'C',
+			commissionPeriodicCount: 0,
+			commissionPeriodicUnits: 'C',
+
+			amount: 1000000,
+			payment: 10000,
+			procedure: 'A',
+
+			repayments: []
+		},
+		result: {
+			periods: [],
+			psk: '',
+			total: {}
+		},
+
+		isBalanceNegative: false
+	},
+	methods: {
+		clearResult: function () {
+			this.result.periods = [];
+			this.result.total = {};
+			this.isBalanceNegative = false;
+		},
+		calculate: function () {
+			var self = this;
+
+			setTimeout(function () {
+				yaCounter45637635.reachGoal('credit-calculator');
+			}, 0);
+
+			setTimeout(function () {
+				_rutarget.push({'event': 'thankYou', 'conv_id': 'credit_calculator'});
+			}, 0);
+
+			// Окно ошибки для "Дополнительные пополнения вклада" и "Частичное изъятие вклада"
+			Object.keys(self.state.$error).forEach(function (fieldName) {
+				var fieldErrors = Object.keys(self.state.$error[fieldName].$error);
+
+				if (~fieldErrors.indexOf('validate-date-min')) {
+					if (fieldName.indexOf('dateClosing') === 0) {
+						self.showErrorMessage('Дата досрочного погашения не должна быть ранее даты выдачи кредита/займа');
+						return;
+					}
+					if (fieldName.indexOf('replenishment_date_') === 0) {
+						self.showErrorMessage('Дата частичного погашения не должна быть ранее даты выдачи кредита/займа');
+						return;
+					}
+				}
+
+				if (~fieldErrors.indexOf('validate-date-max')) {
+					if (fieldName.indexOf('dateClosing') === 0) {
+						self.showErrorMessage('Дата досрочного погашения не должна быть позднее даты окончания кредита/займа');
+						return;
+					}
+					if (fieldName.indexOf('replenishment_date_') === 0) {
+						self.showErrorMessage('Дата частичного погашения не должна быть позднее даты окончания кредита/займа');
+						return;
+					}
+				}
+			});
+
+			if (self.state.$invalid) return;
+
+			var totalPayment = self.commissionOnce;
+			var totalAccumulation = 0;
+			var totalAmount = 0;
+			var totalCommission = self.commissionOnce;
+			var totalBalance = self.amount;
+
+			var periods = [
+				{
+					date: self.dateOpening,
+					payment: 0,
+					accumulation: 0,
+					amount: 0,
+					commission: 0,
+					balance: self.amount
+				}
+			];
+
+			if (self.commissionOnce) {
+				periods.push({
+					date:         self.dateOpening,
+					payment:      self.commissionOnce,
+					accumulation: 0,
+					amount:       0,
+					commission:   self.commissionOnce,
+					balance:      self.amount
+				});
+			}
+
+			var isBreak = false;
+			self.periods.forEach(function (period, index, array) {
+				if (isBreak) return;
+				if (self.isBalanceNegative) return;
+
+				var periodDateOpening = period.dateOpening;
+				var periodDateClosing = period.dateClosing >= self.dateClosing ? self.dateClosing : period.dateClosing;
+
+				var paymentsAmount = 0;
+
+				self.payments
+					.filter(function (payment) {
+						return (payment.date >= period.dateOpening && payment.date < period.dateClosing);
+					})
+					.forEach(function (payment) {
+						periods.push({
+							date:         payment.date,
+							payment:      -payment.amount,
+							accumulation: 0,
+							amount:       -payment.amount,
+							commission:   0,
+							balance:      totalBalance + payment.amount
+						});
+
+						paymentsAmount += -payment.amount;
+
+						if (payment.date === period.dateOpening && totalBalance - self.commissionOnce <= 0) {
+							self.showErrorMessage('Проверьте корректность введенных данных. Отрицательное значение кредита.');
+							self.isBalanceNegative = true;
+						}
+
+						if (totalBalance < 0) {
+							self.showErrorMessage('Проверьте корректность введенных данных. Отрицательное значение кредита.');
+							self.isBalanceNegative = true;
+						}
+					});
+
+				if (self.isBalanceNegative) return;
+
+				if (periodDateOpening >= periodDateClosing) return;
+
+				period.date = periodDateClosing;
+				period.accumulation = self.getAccumulation(totalBalance, periodDateOpening, periodDateClosing);
+				period.payment = self.getPayment(totalBalance, periodDateOpening, periodDateClosing);
+
+				// Если при ануитентных платежах ушли в минус
+				if (period.payment >= totalBalance) {
+					period.payment = totalBalance + period.accumulation;
+					isBreak = true;
+				}
+
+				if (periodDateClosing >= self.dateClosing || index === array.length - 1) {
+					period.payment = self.toFixedNumber(totalBalance + period.accumulation, 2);
+				}
+
+				period.amount = self.toFixedNumber(period.payment - period.accumulation, 2);
+				period.commission = self.commissionPeriodic;
+				period.balance = self.toFixedNumber(totalBalance - period.amount, 2);
+
+				periods.push({
+					date:         period.date,
+					payment:      period.payment + period.commission,
+					accumulation: period.accumulation,
+					amount:       period.amount,
+					commission:   period.commission,
+					balance:      period.balance - paymentsAmount
+				});
+
+				totalPayment += (period.payment + period.commission) + paymentsAmount;
+				totalAccumulation += period.accumulation;
+				totalAmount += period.amount + paymentsAmount;
+				totalCommission += period.commission;
+				totalBalance = period.balance - paymentsAmount;
+
+				if (totalBalance < 0) {
+					self.showErrorMessage('Проверьте корректность введенных данных. Отрицательное значение кредита.');
+					self.isBalanceNegative = true;
+				}
+			});
+
+			if (self.isBalanceNegative) return;
+
+			self.result.periods = periods;
+			self.result.total = {
+				payment:      totalPayment,
+				accumulation: totalAccumulation,
+				amount:       totalAmount,
+				commission:   totalCommission,
+				balance:      totalBalance
+			};
+			self.result.psk = self.calculatePSK(periods);
+
+			self.$nextTick(function () {
+				$.scrollToTarget('.section_calc-result');
+			});
+		},
+		calculatePSK: function (periods) {
+			var self = this;
+
+			var bp = self.pskBasePeriod;
+			var bpc = self.pskBasePeriodCount;
+
+			var payments = periods
+				.map(function (period, index) {
+					return {
+						days: self.getDays(self.dateOpening, period.date),
+						summ: index === 0
+							? -parseFloat(period.balance.toFixed(2))
+							: parseFloat(period.payment.toFixed(2))
+					};
+				})
+				.map(function (period) {
+					return {
+						days: period.days,
+						summ: period.summ,
+						// срок, выраженный в долях базового периода, с момента завершения Qk -го базового периода до даты платежа
+						e: parseFloat(((period.days % bp) / bp).toFixed(3)),
+						// количество полных базовых периодов с момента выдачи кредита до даты платежа
+						q: Math.floor(period.days / bp)
+					}
+				});
+
+			// Посчитаем процентную ставку базового периода
+			var i = 0;
+			var step = 1;
+			for (var x = 1; x > 0; i = i + step) {
+				x = payments
+					.reduce(function (total, payment) {
+						return total + payment.summ / ((1 + payment.e * i) * Math.pow(1 + i, payment.q));
+					}, 0);
+
+				// Найменьшее значение "i" было предыдущим
+				if (x < 0) {
+					i = i - step;
+
+					if (step > 0.000001) {
+						step = parseFloat((step / 10).toFixed(6));
+						x = 1;
+					}
+				}
+			}
+
+			// Посчитаем ПСК
+			return i * bpc * 100;
+		},
+
+		// Расчет периодического платежа по основному долгу
+		getPayment: function (balance, dateOpening, dateClosing) {
+			var result;
+			var daysInPeriod = this.getDays(dateOpening, dateClosing);
+			var daysInYear = this.getDaysInYear(dateOpening);
+			// var P = (this.fields.rate / 100) * daysInPeriod / daysInYear;
+			var S = this.amount;
+
+			// Порядок погашения: Аннуитетный
+			if (this.fields.procedure === 'A') {
+				var n = this.periods.length;
+				var P = this.periodsRate;
+
+				result = S * (P + (P / (Math.pow(1 + P, n) - 1)));
+			}
+			// Порядок погашения: Дифференцированный
+			else {
+				var n = this.periods.length;
+
+				result = (S / n) + this.getAccumulation(balance, dateOpening, dateClosing);
+			}
+
+			return this.toFixedNumber(result, 2);
+		},
+		// Расчет периодической суммы начисленных процентов по кредиту
+		getAccumulation: function (balance, dateOpening, dateClosing) {
+			var result;
+			var daysInPeriod = this.getDays(dateOpening, dateClosing);
+			var daysInYear = this.getDaysInYear(dateOpening);
+			var P = (this.fields.rate / 100) * daysInPeriod / daysInYear;
+
+			// Порядок погашения: Аннуитетный
+			if (this.fields.procedure === 'A') {
+				var P = this.periodsRate;
+
+				result = balance * P;
+			}
+			// Порядок погашения: Дифференцированный
+			else {
+				var daysInPeriod = this.getDays(dateOpening, dateClosing);
+				var daysInYear = this.getDaysInYear(dateOpening);
+				var P = (this.fields.rate / 100) * daysInPeriod / daysInYear;
+
+				result = balance * P;
+			}
+
+			return this.toFixedNumber(result, 2);
+		},
+
+		// Частичное погашение
+		addRepayment: function () {
+			var date = this.fields.repayments.length
+				? this.fields.repayments[this.fields.repayments.length - 1].date
+				: this.fields.dateOpening
+
+			this.fields.repayments.push({ amount: 0, date: date });
+		},
+		delRepayment: function (index) {
+			this.fields.repayments.splice(index, 1);
+		}
+	},
+	mixins: [
+		new VueForm({
+			showMessages: '$submitted',
+			validators: {
+				'validate-date': function (value) {
+					var isValid = moment(value, 'DD.MM.YYYY').isValid();
+					var isNotMin = moment(value, 'DD.MM.YYYY') > moment('01.01.1900', 'DD.MM.YYYY');
+					var isNotMax = moment(value, 'DD.MM.YYYY') < moment('31.12.2200', 'DD.MM.YYYY');
+
+					return isValid && isNotMin && isNotMax;
+				},
+				'validate-date-max': function (value, attrValue) {
+					return moment(value, 'DD.MM.YYYY') <= moment(attrValue, 'DD.MM.YYYY')
+				},
+				'validate-date-min': function (value, attrValue) {
+					return moment(value, 'DD.MM.YYYY') >= moment(attrValue, 'DD.MM.YYYY')
+				},
+				'validate-not-null': function (value) {
+					var number = typeof value === 'number' ? value : Number(value.replace(/\s/g, '').replace(/\,/g, '.'));
+
+					return number > 0;
+				},
+				'validate-max': function (value, attrValue) {
+					var number = typeof value === 'number' ? value : Number(value.replace(/\s/g, '').replace(/\,/g, '.'));
+
+					return number <= attrValue;
+				},
+				'validate-min': function (value, attrValue) {
+					var number = typeof value === 'number' ? value : Number(value.replace(/\s/g, '').replace(/\,/g, '.'));
+
+					return number >= attrValue;
+				},
+				'validate-maxlength': function (value, attrValue) {
+					var number = typeof value === 'number' ? value : Number(value.replace(/\s/g, '').replace(/\,/g, '.'));
+					var maxNumber = Math.pow(10, attrValue) - 1;
+
+					return number <= maxNumber && String(number).length <= attrValue;
+				}
+			}
+		}),
+		calculatorsMixin
+	],
+	watch: {
+		'fields.isPostpone': function (value) {
+			var self = this;
+
+			self.fields.repayments = self.fields.repayments.map(function (repayment) {
+				repayment.date = self.toAvailableDateFormat(repayment.date);
+
+				return repayment;
+			});
+		},
+		'fields.procedure': function (newValue) {
+			if (newValue === 'A') {
+				this.fields.periodicity = 'months';
+			}
+		},
+		currentTab: function (newValue) {
+			if (newValue === 'PAYMENT') {
+				this.fields.isEarlyClosing = false;
+			}
+			this.clearResult()
+		}
+	}
+});
+
+/* End */
+;; /* /local/components/dalee/calc.credit/templates/.default/script.js?156016002315143*/

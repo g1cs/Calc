@@ -103,6 +103,7 @@ function loadDefaultCalc1() {
 }
 
 var list_displayUserCalcs = [];
+var class_styleCalc = "idStyleCalc";
 // отображение калькуляторов
 function displayUserCalcs() {
     $(id_div_TypesCalcs).empty();
@@ -113,27 +114,37 @@ function displayUserCalcs() {
     // создание и заполнение блока
     var mainDiv = $('<div>', {class: ""});
     for (var i = 0; i < userCalcs.length; i++) {
-        console.log(userCalcs[i]);
-
-        var idCalc = userCalcs[i].calcId;
 
         var div = $('<div id="userCalc' + i + '">', { class: "" /*, text: userCalcs[i].name*/});
         var divSave = $('<button id="' + i + '" onclick="displayUserCalc(id);">' + userCalcs[i].name + '</button>');
         var divEdit = $('<button id="' + i + '" onclick="editUserCalc(id);">Редактировать</button>');
         var divDel = $('<button id="' + i + '" onclick="deleteUserCalc(id);">Удалить</button>');
+
+        var idCalc = userCalcs[i].calcId;
         var divCode = $('<button id="' + idCalc + '" onclick="displayCode(id);">Код</button>');
+
+
+
+            var stringStyles = '<ul>' +
+                '<li><a name="/resources/js/calc.js" onclick="downloadFile(name);">calc.js</a></li>' +
+                '<li><a name="/resources/css/class.css" onclick="downloadFile(name);">class.css</a></li>' +
+                '<li><a name="/resources/css/elements.css" onclick="downloadFile(name);">elements.css</a></li>' +
+                '<li class="' + class_styleCalc + '"><a name="/resources/css/' + styles[0] + '">' + stylesName[0] + '</a></li>' +
+            '</ul>';
+
+            console.log(stringStyles);
+
 
         var modalCode =
             $('<div id="modal' + idCalc + '" class="modal_window" style="display: none;">' +
-                    '<h2 class="modal_h2">Данные калькулятора</h2>' +
-                    '<a id="' + idCalc + '" class="modal_close" onclick="closeCode(id);">x</a>' +
-                    '<div class="modal_content">' +
-                        '<div id="code' + idCalc + '"></div>' +
-                        '<div>Скачатйте и подключите следующие файлы на стороннем сайте: ' +
-                            '<a name="/resources/js/calc.js" onclick="downloadFile(name);" style="color: black;">calc.js</a>' +
-                            '<a name="/resources/js/class.css" onclick="downloadFile(name);" style="color: black;">class.css</a>' +
-                        '</div>' +
-                    '</div>' +
+                '<h2 class="modal_h2">Данные калькулятора</h2>' +
+                '<a id="' + idCalc + '" class="modal_close" onclick="closeCode(id);">x</a>' +
+                '<div class="modal_content">' +
+                '<div id="code' + idCalc + '"></div>' +
+                '<div>Скачатйте и подключите следующие файлы на стороннем сайте: </div>' +
+                '<div>' + stringStyles + '</div>' +
+                 '</div>' +
+                '</div>' +
                 '</div>');
 
         $('body').append(modalCode);
@@ -201,7 +212,6 @@ window.downloadFile = function (sUrl) {
     window.open(sUrl, '_self');
     return true;
 };
-
 window.downloadFile.isChrome = navigator.userAgent.toLowerCase().indexOf('chrome') > -1;
 window.downloadFile.isSafari = navigator.userAgent.toLowerCase().indexOf('safari') > -1;
 
@@ -218,12 +228,16 @@ function unique(arr) {
 
 // отображение элементов выбранного калькулятора
 function displayUserCalc(index) {
+
+    $(id_div_ListElemCalcs).empty();
+    $(id_div_Constructor).empty();
+    $(id_div_Result).empty();
     selectIndexCalc = index;
     selectTypeCalc = $(userCalcs)[index].type;
-    console.log(selectIndexCalc);
-    console.log(selectTypeCalc);
     displayConstructorCalc();
 }
+
+
 function editUserCalc(index) {
 
     $(id_div_ListElemCalcs).empty();
@@ -269,6 +283,7 @@ function deleteUserCalc(index) {
         url: url_edit_ajax,
         data : JSON.stringify(search),
         dataType : 'json',
+        async: false,
         success: function (data) {
             success = true;
             console.log("SUCCESS: ", data);
@@ -290,11 +305,58 @@ function deleteUserCalc(index) {
     });
 }
 
+
+function displayStyles() {
+
+    var div = $('<div>Выберите стиль: </div>');
+    var select = $('<select id="styleCalc" onclick="selectSlyleCalc(value)"></select>');
+
+    var start = 0, end = styles.length;
+    for (var j = start; j < end; j++) {
+        var option = $('<option value="' + j + '">' + stylesName[j] + '</option>');
+        select.append(option);
+    }
+    div.append(select);
+    $(id_div_ListElemCalcs).append(div);
+}
+var styles = [];
+var stylesName = [];
+var selectStyle = 0;
+
+jQuery(document).ready(function($) {
+    styles.push('style1.css');
+    stylesName.push('Стиль 1');
+
+    styles.push('style2.css');
+    stylesName.push('Стиль 2');
+
+    styles.push('style3.css');
+    stylesName.push('Стиль 3');
+
+    styles.push('style4.css');
+    stylesName.push('Стиль 4');
+});
+
+function selectSlyleCalc(value) {
+
+    selectStyle = value;
+
+    var list_li = $('.' + class_styleCalc);
+    $('link[id="linkStyle"]').attr('href', '/resources/css/' + styles[selectStyle])
+
+    for (var i = 0; i < list_li.length; i++) {
+        var li = list_li[i];
+        $(li).empty();
+        $(li).append('<a name="/resources/css/' + styles[selectStyle] + '" onclick="downloadFile(name);">' + styles[selectStyle] + '</a>');
+    }
+}
+
 var id_ul_list_cbs = "list_cbs";
 // Отображение элементов выбранного калькулятора (в checkbox(ы))
 function displayElems() {
 
     $(id_div_ListElemCalcs).empty();
+    displayStyles();
     listElemsConstructor.splice(0, listElemsConstructor.length);
 
     var start = 0;
@@ -303,11 +365,6 @@ function displayElems() {
     console.log(selectTypeCalc);
     if (selectTypeCalc == "Осаго")
         start = 1;
-
-    console.log(selectTypeCalc);
-    console.log(calcs);
-    console.log(calcs[selectTypeCalc]);
-
     // добавление элементов в блок ui
     for (var i = start; i < $(calcs[selectTypeCalc].elements).length; i++) {
         //nameElemCalcs[$(calcs[tCalc])[i].value] = data[i].name;

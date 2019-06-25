@@ -1,0 +1,121 @@
+body {
+
+    width: 100%;
+    background-color: #f2f2f2;
+    font-family: "Lato";
+    font-weight: 300;
+    font-size: 16px;
+    color: #555;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+    margin-top: 70px;
+}
+.buttonSave{
+    color: black;
+    margin-top: -7%;
+    margin-left: 30%;
+    margin-bottom: 3%;
+}
+.buttonDelete{
+    color: black;
+    margin-top: 3%;
+    margin-left: 12%;
+    margin-bottom: 3%;
+}
+.typeCalcs{
+    width: 10%;
+    position: relative;
+    left: 5%;
+}
+.constructor{
+    bottom: 100%;
+    left: 7%;
+}
+.displaylistNamesCalcs{
+    padding-left: 15px;
+}
+.displayListCheckbox{
+    color: black;
+    padding-left: 1%;
+}
+.displayElemsSelectCalc{
+    padding-left: 15px;
+}
+.displaySelect
+{
+}
+.elementsCalcs
+{
+    bottom: 38%;
+}
+.displaySlider{
+}
+.displayInput
+{
+
+}
+.displayInput1
+{
+
+    padding-left: 2%;
+    padding-right: 25%;
+}
+.displayInput2
+{
+
+    padding-right: 33%;
+    padding-left: 2%;
+}
+
+.nameCalc{
+
+
+
+}
+.stylelable
+{
+    margin-left: 30px;
+    list-style: none;
+    border: 2px solid green;
+    background: #EBF3FA;
+    position: relative;
+    margin-bottom: 0px;
+    padding: 5px 0px;
+    width: 44%;
+    text-align: center;
+}
+.stylelable1
+{
+    list-style: none;
+    border: 2px solid green;
+    background: #EBF3FA;
+    position: relative;
+    padding: 5px 0px;
+    width: 34%;
+    text-align: center;
+}
+.names{
+    color: black;
+    padding-left: 1%;
+    padding-top: 2%;
+    display: inline-block;
+
+    width: 48%;
+}
+.names1{
+    margin-left: 3%;
+    color: black;
+    width: 20%;
+}
+.resultat
+{
+    margin-left: 8%;
+    list-style: none;
+    border: 2px solid green;
+    background: #EBF3FA;
+    position: relative;
+    margin-bottom: 0px;
+    padding: 5px 10px;
+    width: 75%;
+    text-align: center;
+}

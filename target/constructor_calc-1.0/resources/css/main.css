@@ -32,10 +32,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Paragraph & Typographic */
 
-p {
-    line-height: 28px;
-    margin-bottom: 25px;
-}
+
 
 .centered {
     text-align: center;
@@ -549,15 +546,6 @@ hr {
 
 
 
-
-.border1 {
-    border: 1px solid black;
-    margin: 5px;
-}
-
-.border {
-    border: 1px solid black;
-}
 
 .tooltip {
     position: relative;

@@ -48,29 +48,34 @@
 
   </div>
 </div><!-- /.container -->
-<div class="col-md-offset-1">
-  <form action="/osagoreso">
-    <center><button type="submit" class="btn btn-primary btn-lg">Пример встраимого калькулятора</button></center>
-  </form>
+<div class="margin_type">
   <form action="/edit">
     <div class="button-container">
-      <a type="submit" name="typeCalc" href="/edit?typeCalc=Осаго">Создать калькулятор Осаго</a>
-      <a type="submit" name="typeCalc" href="/edit?typeCalc=Кредит">Создать калькулятор Кредит</a>
-      <a type="submit" name="typeCalc" href="/edit?typeCalc=Ипотека">Создать калькулятор Ипотека</a>
+      <a type="submit" name="typeCalc" href="/edit?typeCalc=Осаго">Создать калькулятор "Осаго"</a>
+      <a type="submit" name="typeCalc" href="/edit?typeCalc=Кредит">Создать калькулятор "Кредит"</a>
+      <a type="submit" name="typeCalc" href="/edit?typeCalc=Ипотека">Создать калькулятор "Ипотека"</a>
+    </div>
+
+  </form>
+</div>
+<div>
+  <form action="/osagoreso">
+    <div class="button-container margin_example">
+      <a type="submit" name="typeCalc" href="/osagoreso">Пример встраиваемого калькулятора</a>
     </div>
   </form>
-
-
-
-
 </div>
 
 
 
-<%--<div><img src="/resources/img/bank.jpeg"></div>--%>
 
+
+
+
+
+<%--<div><img src="/resources/img/bank.jpeg"></div>--%>
 <!-- FOOTER -->
-<div id="f" class="navbar-fixed-bottom">
+<div id="f" class="bottom">
   <div class="container">
     <div class="row centered">
       <a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-dribbble"></i></a>
@@ -82,4 +87,6 @@
 <!-- Footer -->
 <!-- ///////////////////////////////////////////////////////     -->
 </body>
+
+
 </html>

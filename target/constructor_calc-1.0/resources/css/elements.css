@@ -1,78 +1,6 @@
-.test
-{
-
-    font-size: 18px;
-    color: black;
+.result{
+    margin-left: 37%;
 }
-.buttonSave{
-    color: black;
-    margin-top: -7%;
-    margin-left: 30%;
-    margin-bottom: 3%;
-}
-.buttonDelete{
-    color: black;
-    margin-top: 3%;
-    margin-left: 12%;
-    margin-bottom: 3%;
-}
-.displaylistNamesCalcs{
-    padding-left: 15px;
-}
-.displayListCheckbox{
-    color: black;
-    padding-left: 4%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-}
-.displayElemsSelectCalc{
-    padding-left: 15px;
-}
-.displaySelect
-{
-    color: black;
-    padding-left: 4%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-}
-.displaySlider{
-    color: black;
-    padding-left: 4%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-}
-.displayInput
-{
-    color: black;
-    padding-left: 4%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-}
-.nameCalc{
-    color: black;
-    padding-left: 4%;
-    padding-bottom: 2%;
-    margin-top: 10%;
-}
-.stylelable
-{
-    margin-left: 30px;
-    list-style: none;
-    border: 2px solid #337AB7;
-    background: #EBF3FA;
-    position: relative;
-    margin-bottom: 20px;
-    padding: 16px 10px;
-    width: 67%;
-    text-align: center;
-}
-body {background: #C94A4A; /* Для браузеров, которые не поддерживают градиенты */
-    background: -webkit-linear-gradient(left, #C94A4A 30%, #F2C14E 70%, #4D9078); /* Для Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(left, #C94A4A 30%, #F2C14E 70%, #4D9078); /* Для Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(left, #C94A4A 30%, #F2C14E 70%, #4D9078); /* Для Firefox 3.6 - 15 */
-    background: linear-gradient(left, #C94A4A 30%, #F2C14E 70%, #4D9078); /* Стандартный синтаксис */
-}
-
 button {
     text-decoration: none;
     outline: none;
@@ -325,8 +253,4 @@ hr.style {
     border: 0;
     border-bottom: 1px dashed #ccc;
     background: #999;
-}
-.test1
-{
-    margin-top: 30%;
 }
