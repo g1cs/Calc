@@ -11,7 +11,7 @@
     display:none; /* Hides the modal window by default */
     z-index:9999;
     width:500px;
-    background: #FF5722;
+    background: grey;
     -webkit-box-shadow: 0 8px 6px -6px black;
     -moz-box-shadow: 0 8px 6px -6px black;
     box-shadow: 0 8px 6px -6px black;
@@ -21,10 +21,10 @@
 }
 
 h2 .modal_h2 {
-    background-color: #E64A19;
+    background-color: white;
     padding: 15px;
     font-size: 25px;
-    color: #000;
+    color: white;
     margin: 0;
     font-family: arial;
     text-align: center;

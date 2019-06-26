@@ -23,20 +23,19 @@ body {
 }
 
 /* Titles */
-
+.clr{
+    color: white;
+}
 h1, h2, h3, h4, h5, h6 {
     font-family: "Raleway";
     font-weight: 300;
-    color: white;
+
 }
 
 /* Paragraph & Typographic */
 
 
 
-.centered {
-    text-align: center;
-}
 
 /* Links */
 
@@ -282,6 +281,7 @@ hr {
 /***** MODAL CONTACT *****/
 
 .modal-content {
+
     border-radius: 0px;
 }
 
@@ -534,14 +534,6 @@ hr {
     margin-left: 9%;
 }
 
-.inputElem{
-    width:44.5%;
-    margin-left: 30px;
-}
-.selectElem{
-    width:44.5%;
-    margin-left: 30px;
-}
 
 
 
@@ -635,7 +627,9 @@ hr {
     /*opacity:1;*/
     /*top:15px;*/
 /*}*/
-
+.centered {
+    text-align: center;
+}
 
 #i-have-a-tooltip span{
     padding: 2px 6px;

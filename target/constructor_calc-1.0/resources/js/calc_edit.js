@@ -359,7 +359,6 @@ function displayElems() {
     var start = 0;
     var ul = $('<ul id="list_cbs" class="list1a"></ul>');
 
-    console.log(selectTypeCalc);
     if (selectTypeCalc == "Осаго")
         start = 1;
     // добавление элементов в блок ui
@@ -371,12 +370,7 @@ function displayElems() {
             '" onclick="checkboxChangeCalc(this);"/><span class="displayElemsselectTypeCalc">' + $(calcs[selectTypeCalc].elements)[i].name + '</span></li>');
         ul.append(checkbox);
     }
-    console.log(ul);
-    console.log(id_div_ListElemCalcs);
-    console.log($(id_div_ListElemCalcs));
     ul.appendTo(id_div_ListElemCalcs);
-    // $(id_div_ListElemCalcs).append(ul);
-    console.log($(id_div_ListElemCalcs));
 }
 // Выбор элемента калькулятора
 function checkboxChangeCalc(checkbox) {
@@ -418,19 +412,12 @@ function updateConstructorFromCalc() {
 
 
 function buttonsFromCalc() {
-    console.log("buttonsFromCalc");
 
-    var mainDiv = $('<br><br><br><br><div>', {id: "res", class: "test"});
-    var divCompute = $('<div id="computeRes" class="buttonCompute">');
-    var divSave = $('<div id="saveRes" class="buttonSave">');
+    var mainDiv = $('<div>', {id: "res", class: "test"});
     var buttonSave = $('<button type="submit" id="btnSave" onclick="saveCalcFromCalc();">Сохранить</button>');
-    var buttonCompute = $('<button type="submit" id="btnCompute" onclick="computeCalcFromCalc();">Вычислить</button>');
-    divCompute.append(buttonCompute);
-    divSave.append(buttonSave);
+    var buttonCompute = $('<button type="submit" id="btnSave" onclick="computeCalcFromCalc();">Вычислить</button>');
 
-    mainDiv//.append($('<div>', {class: "border", text: p.info}))
-    //.append($('<div>', {class: "border", text: p.formula}))
-        .append(divCompute).append(divSave).appendTo(id_div_Constructor);
+    mainDiv.append(buttonCompute).append(buttonSave).appendTo(id_div_Constructor);
 }
 
 // Сохранение калькулятора

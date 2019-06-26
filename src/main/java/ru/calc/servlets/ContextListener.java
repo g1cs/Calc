@@ -31,15 +31,15 @@ public class ContextListener implements ServletContextListener {
 
 
   private void addAdminCalcs() {
-    final CalcOsago calcOsago = new CalcOsago("Калькулятор Осаго");
+    final CalcOsago calcOsago = new CalcOsago("Осаго");
     calcOsago.init();
     calcOsago.userId = 1;
     dbWorker.addUserCalc(calcOsago);
-    final CalcCredit calcCredit = new CalcCredit("Кредитный калькулятор");
+    final CalcCredit calcCredit = new CalcCredit("Кредит");
     calcCredit.init();
     calcCredit.userId = 1;
     dbWorker.addUserCalc(calcCredit);
-    final CalcIpoteka calcIpoteka = new CalcIpoteka("Ипотечный калькулятор");
+    final CalcIpoteka calcIpoteka = new CalcIpoteka("Ипотека");
     calcIpoteka.init();
     calcIpoteka.userId = 1;
     dbWorker.addUserCalc(calcIpoteka);

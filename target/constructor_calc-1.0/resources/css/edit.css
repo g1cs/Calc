@@ -536,19 +536,61 @@ hr {
 {
     margin-left: 9%;
 }
-
 .inputElem{
-    width:44.5%;
-    margin-left: 30px;
+    bottom: 0px;
+    }
+.inputElem1{
+    bottom: -5px;
+    right: -3%;
+}
+.inputElem2{
+    top: -15px;
+    left: 5.5%;
+
+}
+.inputElem3 {
+    bottom: 15px;
+    right: -8.5%;
+}
+.inputElem4 {
+    bottom: 15px;
+    right: -8.5%;
 }
 .selectElem{
-    width:44.5%;
-    margin-left: 30px;
+    bottom: -5px;
 }
 
 
+.buttonCacl{
+    top: 100px;
+    right: 3%;
+    position: relative;
+}
+.button_change{
+    right: -2%;
+    position: relative;
+}
+.buttonAdd{
+    position: relative;
+    top: -81px;
+    margin-left: 73%;
 
-
+}
+.buttonUslov
+{
+    left: 9%;
+    position: relative;
+}
+.buttonSave{
+    top:35px;
+    left: 30%;
+    position: relative;
+}
+.buttonDelete{
+    left: 87%;
+    top: -67px;
+    position: relative;
+}
 
 .border1 {
     border: 1px solid black;
@@ -564,7 +606,18 @@ hr {
     display: inline-block;
     border-bottom: 1px dotted black;
 }
-
+.div_result{
+    width: 39%;
+    position: relative;
+    left:32%;
+    margin-top: 5%;
+    list-style: none;
+    border: 2px solid #337AB7;
+    background: #EBF3FA;
+    padding: 5px 0px;
+    text-align: center;
+    height: max-content;
+}
 .tooltip .tooltiptext {
     visibility: hidden;
     width: 1000px;

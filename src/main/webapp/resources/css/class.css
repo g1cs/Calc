@@ -10,49 +10,49 @@ body {
     -webkit-overflow-scrolling: touch;
     margin-top: 70px;
 }
-.buttonSave{
-    color: black;
-    margin-top: -7%;
-    margin-left: 30%;
-    margin-bottom: 3%;
-}
-.buttonDelete{
-    color: black;
-    margin-top: 3%;
-    margin-left: 12%;
-    margin-bottom: 3%;
-}
+
 .typeCalcs{
-    width: 10%;
+    width: max-content;
     position: relative;
-    left: 5%;
+    left: 2%;
 }
 .constructor{
-    bottom: 100%;
-    left: 7%;
+    left: 6%;
+    position: relative;
+    width: 62%;
+
 }
 .displaylistNamesCalcs{
     padding-left: 15px;
 }
-.displayListCheckbox{
-    color: black;
-    padding-left: 1%;
+._cb_{
+
 }
 .displayElemsSelectCalc{
     padding-left: 15px;
 }
 .displaySelect
 {
+
+}
+.inline_box{
+    display: -webkit-box;
 }
 .elementsCalcs
 {
-    bottom: 38%;
+    position: relative;
+    width: max-content;
+    left: 3%;
 }
 .displaySlider{
+    bottom: 2.5%;
+    position: relative;
 }
 .displayInput
 {
-
+    display: -webkit-inline-box;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 .displayInput1
 {
@@ -76,7 +76,7 @@ body {
 {
     margin-left: 30px;
     list-style: none;
-    border: 2px solid green;
+    border: 2px solid #337AB7;
     background: #EBF3FA;
     position: relative;
     margin-bottom: 0px;
@@ -86,32 +86,69 @@ body {
 }
 .stylelable1
 {
+    margin-right: 10px;
+    list-style: none;
+    border: 2px solid green;
+    background: #EBF3FA;
+    /*position: relative;*/
+    padding: 5px 0px;
+    width: 22%;
+    text-align: center;
+}
+.block_height{
+    height: 100px;
+}
+.block_height1{
+    height: 50px;
+}
+.radiobut{
+    padding-right: 23%;
+    position: relative;
+
+}
+.dopusl
+{
+    left:3%;
+}
+.dopusl1
+{
+    position: relative;
+    left:2%;
+}
+.stylelable2
+{
     list-style: none;
     border: 2px solid green;
     background: #EBF3FA;
     position: relative;
     padding: 5px 0px;
-    width: 34%;
+    width: 50%;
     text-align: center;
 }
+
 .names{
     color: black;
     padding-left: 1%;
     padding-top: 2%;
     display: inline-block;
-
     width: 48%;
 }
 .names1{
-    margin-left: 3%;
+    display: inline-block;
     color: black;
-    width: 20%;
+    position: relative;
+    width: 25%;
+}
+.resultatBTN{
+    top:20px;
+    left:74%;
+    position: relative;
 }
 .resultat
 {
     margin-left: 8%;
     list-style: none;
-    border: 2px solid green;
+    border: 2px solid #337AB7;
     background: #EBF3FA;
     position: relative;
     margin-bottom: 0px;

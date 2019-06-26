@@ -1,6 +1,10 @@
 .result{
-    margin-left: 37%;
+left:2%;
+    top:100px;
+    position: relative;
 }
+.constructo{top: 50px;
+    position: relative;}
 button {
     text-decoration: none;
     outline: none;
@@ -9,7 +13,7 @@ button {
     height: 45px;
     line-height: 45px;
     border-radius: 45px;
-    margin: 10px 20px;
+    margin-right: 10px;
     font-family: 'Montserrat', sans-serif;
     font-size: 11px;
     text-transform: uppercase;
@@ -253,4 +257,8 @@ hr.style {
     border: 0;
     border-bottom: 1px dashed #ccc;
     background: #999;
+}
+
+.btbName {
+    min-width: 200px;
 }

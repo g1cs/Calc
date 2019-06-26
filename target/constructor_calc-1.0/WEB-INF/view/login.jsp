@@ -67,11 +67,11 @@
 
 <%-- <div class="form">
 
-     <h1>Вход в систему</h1><br>
+     <h1>Вход в систему</h1>
      <form id="mail_form" method="post" action="">
 
-         <input type="text" required placeholder="login" name="login"><br>
-         <input type="password" required placeholder="password" name="password"><br><br>
+         <input type="text" required placeholder="login" name="login">
+         <input type="password" required placeholder="password" name="password">
          <input class="button" type="submit" value="Войти">
          <span id='error' style='color:red; font-weight:bold;'></span>
 
@@ -93,7 +93,7 @@
                     $('#error').html(""); //Clear error span
 
                     $.each(myArray['errors'], function (i) {
-                            $('#error').append(myArray['errors'][i] + "<br>");
+                            $('#error').append(myArray['errors'][i] + "");
                         }
                     );
                 }

@@ -137,7 +137,11 @@ function nameCalcFromCalc() {
 // Элементы
 function elementsFromCalc() {
     var elements = $(userCalcs)[selectIndexCalc].elements;
-    for (var j = 0; j < elements.length; j++) {
+    var start = 0;
+
+    if (selectTypeCalc == "Осаго")
+        start = 1;
+    for (var j = start; j < elements.length; j++) {
         var elem = elements[j];
         switch (elem.type) {
             case "input":                 displayInputFromCalc(elem);                 break;
@@ -151,9 +155,9 @@ function elementsFromCalc() {
 }
 
 function buttonCompute() {
-    var mainDiv = $('<div>', {id: "res", class: "test"});
+    var mainDiv = $('<div>', {id: "res", class: ""});
     var divCompute = $('<div id="computeRes" class="buttonCompute">');
-    var buttonCompute = $('<button class="result" id="btnCompute" onclick="computeCalcFromCalc();">Вычислить</button>');
+    var buttonCompute = $('<button class="resultatBTN" id="btnCompute" onclick="computeCalcFromCalc();">Вычислить</button>');
     divCompute.append(buttonCompute);
     mainDiv.append(divCompute).appendTo(id_div_Constructor);
 }
@@ -215,7 +219,7 @@ function displayRadioFromCalc(elem) {
     var div = $('<div>', {class: ""});
     for (var i = 0; i < elem.info.list.length; i++)
         div.append(
-            $('<div class="displayInput1"><input type="radio" name="' + elem.idName
+            $('<div class="radiobut"><input type="radio" name="' + elem.idName
                 + '" id="' + elem.idName + '" value="' + elem.info.list[i].value +
                 '" onclick="onChangeElemRadioFromCalc(id, value);"/>' + elem.info.list[i].name + '</div>'));
 
@@ -401,7 +405,7 @@ function result() {
             if (!success)
                 out = $('<div>', {class: "test", text: errorResult});
             else {
-                out = $('<table border="0">');
+                out = $('<table border="1">');
                 out.append($('<tr>' +
                     '<th>№ платежа</th>' +
                     '<th>Задолжность по кредиту</th>' +

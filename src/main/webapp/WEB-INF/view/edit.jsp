@@ -17,7 +17,6 @@
   <link href="${pageContext.request.contextPath}/resources/css/edit.css" rel="stylesheet" />
   <link href="${pageContext.request.contextPath}/resources/css/class.css" rel="stylesheet"/>
   <link href="${pageContext.request.contextPath}/resources/css/elements.css" rel="stylesheet"/>
-  <link id="linkStyle" href="${pageContext.request.contextPath}/resources/css/style1.css" rel="stylesheet"/>
   <%-- js --%>
   <script src="${pageContext.request.contextPath}/resources/bootstrap/js/jquery-ui-1.12.1.js"></script>
   <script src="${pageContext.request.contextPath}/resources/bootstrap/js/jquery-3.4.1.js" ></script>
@@ -72,15 +71,15 @@
 <%--<button type="submit" id="btnLoadTypeCalcs" class="btn btn-primary btn-lg ">Начать</button>--%>
 
 
-<div>
-  <div class="typeCalcs" id="typeCalcs"></div>
-  <div>
-    <div id="elementsCalcs"></div>
-    <div id="constructor"></div>
-    <div id="div_result"></div>
-  </div>
-</div>
+<div class="inline_box">
 
+  <div class="typeCalcs" id="typeCalcs"></div>
+    <div class="elementsCalcs" id="elementsCalcs"></div>
+    <div class="constructor" id="constructor"></div>
+
+
+</div>
+<div class="div_result" id="div_result" style="display: none;"></div>
 
 <%--<table border="1" style="width: 80%;">--%>
   <%--<tr>--%>

@@ -14,15 +14,15 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900|Raleway:400,300,700,900" rel="stylesheet">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
 
+  <link href="${pageContext.request.contextPath}/resources/css/main.css" rel="stylesheet"/>
   <link href="${pageContext.request.contextPath}/resources/css/class.css" rel="stylesheet"/>
   <link href="${pageContext.request.contextPath}/resources/css/elements.css" rel="stylesheet"/>
   <link href="${pageContext.request.contextPath}/resources/css/modal.css" rel="stylesheet"/>
-  <link id="linkStyle" href="${pageContext.request.contextPath}/resources/css/style1.css" rel="stylesheet"/>
 
 
   <script src="${pageContext.request.contextPath}/resources/bootstrap/js/jquery-3.4.1.js" ></script>
-  <script src="${pageContext.request.contextPath}/resources/js/calc.js"></script>
   <script src="${pageContext.request.contextPath}/resources/js/edit.js"></script>
+  <script src="${pageContext.request.contextPath}/resources/js/calc.js"></script>
   <script src="${pageContext.request.contextPath}/resources/js/calc_edit.js"></script>
   <script>
       jQuery(document).ready(function($) {
@@ -56,22 +56,22 @@
   <div>
     <div class="container">
       <div>
-        <h1 id="title"><center>Калькуляторы</center>  </h1>
-        <br>
+        <h1 class="centered" id="title">Калькуляторы  </h1>
+
 
           <%--<div><input type="checkbox" onclick="onchangeEdit(this);"/>Редактировать</div>--%>
           <%--<br><br>--%>
-          <h4><center>LATEST WORKS</center></h4>
+          <h4 class="centered" >LATEST WORKS</h4>
           <%--<br><br>--%>
           <%--<button type="submit" id="btnLoadTypeCalcs">Начать</button>--%>
-          <br><br>
+
         <div class="col-sm-8 col-sm-offset-2">
           <div class="" id="typeCalcs"></div>
-          <br><br>
+
           <div class="" id="elementsCalcs"></div>
-          <br><br>
-          <div class="" id="constructor"></div>
-            <br><br>
+
+          <div class="constructo" id="constructor"></div>
+
             <div class="result" id="div_result"></div>
         </div>
         </div>

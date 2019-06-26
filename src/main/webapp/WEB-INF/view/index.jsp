@@ -38,19 +38,19 @@
     </div><!--/.nav-collapse -->
   </div>
 </div>
-<div class="container" >
+<div class="container centered" >
   <div>
-    <br><br>
-    <h1 id="title"><center>Калькуляторы и формы<br>
-      для сайтов, мессенджеров и соцсетей</center></h1>
-    <h3><center>Сделайте их сами без навыков программирования, потратив 0 рублей и 10 минут времени.</center></h3>
-    <br><br>
+
+    <h1 class="clr" id="title">Калькуляторы и формы </h1>
+    <h1 class="clr"> для сайтов, мессенджеров и соцсетей</h1>
+    <h3 class="clr">Сделайте их сами без навыков программирования, потратив 0 рублей и 10 минут времени.</h3>
+
 
   </div>
 </div><!-- /.container -->
 <div class="margin_type">
   <form action="/edit">
-    <div class="button-container">
+    <div class="button-container centered">
       <a type="submit" name="typeCalc" href="/edit?typeCalc=Осаго">Создать калькулятор "Осаго"</a>
       <a type="submit" name="typeCalc" href="/edit?typeCalc=Кредит">Создать калькулятор "Кредит"</a>
       <a type="submit" name="typeCalc" href="/edit?typeCalc=Ипотека">Создать калькулятор "Ипотека"</a>
@@ -60,8 +60,8 @@
 </div>
 <div>
   <form action="/osagoreso">
-    <div class="button-container margin_example">
-      <a type="submit" name="typeCalc" href="/osagoreso">Пример встраиваемого калькулятора</a>
+    <div class="button-container  centered">
+      <a class="example" type="submit" name="typeCalc" href="/osagoreso">Пример встраиваемого калькулятора</a>
     </div>
   </form>
 </div>
