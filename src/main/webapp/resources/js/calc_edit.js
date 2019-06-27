@@ -6,7 +6,7 @@
 var calcs = [];
 
 var selectIndexCalc = 0;
-var selectTypeCalc;                        // выбранный калькулятор
+var selectTypeCalc = 0;                     // выбранный калькулятор
 var listCalcs = [];                        // список имеющихся калькуляторов
 var listElemsConstructor = [];
 
@@ -16,13 +16,11 @@ var id_div_ListElemCalcs = "#elementsCalcs";
 var id_div_Constructor = "#constructor";
 var id_div_Result = "#div_result";
 
-var url_edit_ajax= "editCalcAjax";
+var url_edit_ajax = "editCalcAjax";
+var id_link_style = "linkStyle";
 
 // Получение пользовательских калькуляторов
 function loadUserCalcs() {
-
-    // for (var i = 0; i < listCalcs.length; i++)
-    //     loadCalc(listCalcs[i]);
 
     $(id_div_TypesCalcs).text("Загрузка пользовательских калькуляторов...");
     var search = { query: "GET", typeCalc: "ALL" };         // запрос для сервера
@@ -37,7 +35,7 @@ function loadUserCalcs() {
         success: function (data) {
             console.log("SUCCESS: ", data);
             userCalcs = JSON.parse(JSON.stringify(data, null, 4));
-            displayUserCalcs(); // получаю list_displayUserCalcs
+            displayUserCalcs();
         },
         error: function (e) { console.log("ERROR: ", e); },
         done: function (e) { console.log("DONE: ", e); }
@@ -129,7 +127,7 @@ function displayUserCalcs() {
                 '<li><a name="/resources/js/calc.js" onclick="downloadFile(name);">calc.js</a></li>' +
                 '<li><a name="/resources/css/class.css" onclick="downloadFile(name);">class.css</a></li>' +
                 '<li><a name="/resources/css/elements.css" onclick="downloadFile(name);">elements.css</a></li>' +
-                '<li class="' + class_styleCalc + '"><a name="/resources/css/' + styles[0] + '">' + stylesName[0] + '</a></li>' +
+                '<li class="' + class_styleCalc + '"><a name="/resources/css/' + styles[selectStyle] + '">' + stylesName[selectStyle] + '</a></li>' +
             '</ul>';
 
         var modalCode =
@@ -247,14 +245,11 @@ function editUserCalc(index) {
     displayElems();
 
     var list_li = $("#" + id_ul_list_cbs).children('li'); // из main.js
-    console.log(list_li);
 
     for (var i = 0; i < list_li.length; i++) {
         var li = list_li[i];
         var checkbox = $(li).children('input');
         var elems = $(userCalcs[index].elements);
-        console.log(checkbox.val());
-        console.log(elems);
         for (var j = 0; j < elems.length; j++) {
             if (checkbox.val() == elems[j].idName) {
                 checkbox.prop('checked', true);
@@ -262,7 +257,6 @@ function editUserCalc(index) {
             }
         }
     }
-    console.log(listElemsConstructor);
     updateConstructorFromCalc();    // из calc.js
 }
 function deleteUserCalc(index) {
@@ -272,7 +266,6 @@ function deleteUserCalc(index) {
         userId: $(userCalcs[index])[0].userId,
         idCalc: $(userCalcs[index])[0].calcId
     };
-    console.log(search);
 
     $.ajax({
         type: "POST",
@@ -339,7 +332,7 @@ function selectSlyleCalc(value) {
     selectStyle = value;
 
     var list_li = $('.' + class_styleCalc);
-    $('link[id="linkStyle"]').attr('href', '/resources/css/' + styles[selectStyle]);
+    $('link[id="' + id_link_style + '"]').attr('href', '/resources/css/' + styles[selectStyle]);
 
     for (var i = 0; i < list_li.length; i++) {
         var li = list_li[i];
@@ -382,7 +375,6 @@ function checkboxChangeCalc(checkbox) {
 }
 
 function updateConstructorFromCalc() {
-    console.log("updateConstructorFromCalc");
 
     $(id_div_Constructor).empty();  // отчистка блока
     $(id_div_Result).empty();
@@ -391,7 +383,6 @@ function updateConstructorFromCalc() {
 
     nameCalc();
 
-    console.log(selectTypeCalc);
     switch(selectTypeCalc) {
         case "Осаго":
             basicRate();
@@ -432,11 +423,13 @@ function saveCalcFromCalc() {
                 list.push($(calcs[selectTypeCalc].elements)[j]);
     }
 
-    console.log(list);
-
-    var search = { idCalc: $(userCalcs)[selectIndexCalc].calcId, typeCalc: selectTypeCalc,
-        query: "UPDATE", list: list , name: $(calcs[selectTypeCalc])[0].name };
-    console.log(search);
+    var search = {
+        idCalc: $(userCalcs)[selectIndexCalc].calcId,
+        typeCalc: selectTypeCalc,
+        query: "UPDATE",
+        list: list,
+        name: $(calcs[selectTypeCalc])[0].name
+    };
 
     $.ajax({
         type: "POST",
@@ -447,11 +440,9 @@ function saveCalcFromCalc() {
         success: function (data) {
             console.log("SUCCESS: ", data);
             $(userCalcs)[selectIndexCalc] = JSON.parse(JSON.stringify(data, null, 4));
-            console.log($(userCalcs));
             alert("Изменения сохранены");
             },
         error: function (data) { console.log("ERROR: ", data); alert("Ошибка сохранения изменений");},
         done: function (data) { console.log("DONE: ", data); }
     });
-
 }

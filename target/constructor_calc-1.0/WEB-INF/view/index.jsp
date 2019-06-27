@@ -48,7 +48,7 @@
 
   </div>
 </div><!-- /.container -->
-<div class="margin_type">
+<div>
   <form action="/edit">
     <div class="button-container centered">
       <a type="submit" name="typeCalc" href="/edit?typeCalc=Осаго">Создать калькулятор "Осаго"</a>
@@ -61,9 +61,11 @@
 <div>
   <form action="/osagoreso">
     <div class="button-container  centered">
-      <a class="example" type="submit" name="typeCalc" href="/osagoreso">Пример встраиваемого калькулятора</a>
+      <a class="example" type="submit" name="typeCalc" href="/osagoreso">Пример встраиваемого калькулятора ОСАГО</a>
+      <a class="example" type="submit" name="typeCalc" href="/credit">Пример встраиваемого кредитного калькулятора</a>
     </div>
   </form>
+
 </div>
 
 

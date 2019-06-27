@@ -18,6 +18,7 @@
   <link href="${pageContext.request.contextPath}/resources/css/class.css" rel="stylesheet"/>
   <link href="${pageContext.request.contextPath}/resources/css/elements.css" rel="stylesheet"/>
   <link href="${pageContext.request.contextPath}/resources/css/modal.css" rel="stylesheet"/>
+  <link id="linkStyle" href="${pageContext.request.contextPath}/resources/css/style1.css" rel="stylesheet"/>
 
 
   <script src="${pageContext.request.contextPath}/resources/bootstrap/js/jquery-3.4.1.js" ></script>
@@ -66,7 +67,7 @@
           <%--<button type="submit" id="btnLoadTypeCalcs">Начать</button>--%>
 
         <div class="col-sm-8 col-sm-offset-2">
-          <div class="" id="typeCalcs"></div>
+          <div class="centered" id="typeCalcs"></div>
 
           <div class="" id="elementsCalcs"></div>
 

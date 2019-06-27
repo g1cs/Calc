@@ -17,6 +17,8 @@
   <link href="${pageContext.request.contextPath}/resources/css/edit.css" rel="stylesheet" />
   <link href="${pageContext.request.contextPath}/resources/css/class.css" rel="stylesheet"/>
   <link href="${pageContext.request.contextPath}/resources/css/elements.css" rel="stylesheet"/>
+  <link href="${pageContext.request.contextPath}/resources/css/style1.css" rel="stylesheet"/>
+
   <%-- js --%>
   <script src="${pageContext.request.contextPath}/resources/bootstrap/js/jquery-ui-1.12.1.js"></script>
   <script src="${pageContext.request.contextPath}/resources/bootstrap/js/jquery-3.4.1.js" ></script>
