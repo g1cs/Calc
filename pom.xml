@@ -30,7 +30,7 @@
         <maven-compiler.configuration>1.8</maven-compiler.configuration>
 
         <!-- Heroku -->
-        <spark-core.version>2.2</spark-core.version>
+        <spark-core.version>2.7.2</spark-core.version>
         <spark-template-freemarket.version>2.7.1</spark-template-freemarket.version>
         <heroku-jdbc.version>0.1.1</heroku-jdbc.version>
 
